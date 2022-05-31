@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import SearchPage from "../SearchPage/SearchPage";
@@ -9,6 +9,11 @@ import Song from "../../components/Song/Song";
 import UserContext from "../../context/UserContext";
 const Layout = () => {
   const [user, setUser] = useState();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <div>
@@ -22,6 +27,7 @@ const Layout = () => {
           ) : (
             <>
               <Route path="/" element={<PlaylistPage />} />
+              <Route path="/Login" element={<Navigate to="/" />} />
               <Route path="/SongPage" element={<SongPage />} />
               <Route path="/SearchPage" element={<SearchPage />} />
             </>

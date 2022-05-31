@@ -1,7 +1,6 @@
 import "./Login.css";
 import React, { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
-// import { useLocation } from "react-router-dom";
 const userDb = { email: "efrat5454@gmail.com", pass: "123" };
 
 const Login = () => {
@@ -9,14 +8,12 @@ const Login = () => {
   const [userEmail, setUserEmail] = useState();
   const [userPass, setUserPass] = useState();
   const checkUser = (e) => {
+    e.preventDefault();
     console.log(userEmail);
     console.log(userPass);
-    if (userEmail === userDb.name && userPass === userDb.pass) {
+    if (userEmail === userDb.email && userPass === userDb.pass) {
       setUser(userDb);
-      //   console.log(useLocation());
     }
-
-    e.preventDefault();
   };
   return (
     <div id="login">
