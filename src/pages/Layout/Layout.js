@@ -29,15 +29,14 @@ const Layout = () => {
         <Routes>
           {!user ? (
             <>
+              {console.log("no user")}
               <Route path="/Login" element={<Login />} />
               <Route path="*" element={<Navigate to="/Login" />} />
             </>
           ) : (
             <>
-              <Route path="/" element={<Navigate to="/Playlist" />} />
               <Route path="/Login" element={<Navigate to="/" />} />
-              <Route path="/SongPage" element={<SongPage />} />
-              <Route path="/SearchPage" element={<SearchPage />} />
+              <Route path="/" element={<Navigate to="/Playlist" />} />
               <Route
                 path="/Playlist"
                 element={<Navigate to={`/Playlist/${idPlaylist}/${idSong}`} />}
@@ -46,6 +45,8 @@ const Layout = () => {
                 path="/Playlist/:idPlaylist/:idSong"
                 element={<PlaylistPage />}
               />
+              <Route path="/Song/:id" element={<SongPage />} />
+              <Route path="/SearchPage" element={<SearchPage />} />
             </>
           )}
         </Routes>
