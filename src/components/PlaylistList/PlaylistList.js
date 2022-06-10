@@ -7,7 +7,6 @@ const PlaylistList = ({ playlists }) => {
   }
   return (
     <div id="PlaylistList">
-      PlaylistList
       {playlists.map((playlist) => (
         <Link to={`/Playlist/${playlist.id}/${playlist.songs[0]}`}>
           <div id={playlist.id}>{playlist.titlePlaylist}</div>

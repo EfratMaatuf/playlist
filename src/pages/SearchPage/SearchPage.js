@@ -61,7 +61,7 @@ const SearchPage = () => {
                     </button>
                   </div>
                   <img
-                    src={song.channel.icon}
+                    src={song.thumbnail.url}
                     width="360px"
                     height="300px"
                     alt={song.title}

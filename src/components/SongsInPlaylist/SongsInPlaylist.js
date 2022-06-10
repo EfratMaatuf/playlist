@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import SongTitle from "../SongTitle/SongTitle";
 
 const SongsInPlaylist = ({ playlists }) => {
   const { idPlaylist } = useParams();
@@ -14,11 +15,8 @@ const SongsInPlaylist = ({ playlists }) => {
 
   return (
     <div id="SongsInPlaylist">
-      SongsInPlaylist
-      {playlist[0].songs.map((song) => (
-        <Link to={`/Playlist/${idPlaylist}/${song}`}>
-          <div>{song}</div>
-        </Link>
+      {playlist[0].songs.map((idSong) => (
+        <SongTitle idPlaylist={idPlaylist} idSong={idSong} />
       ))}
     </div>
   );
