@@ -1,11 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
 
 const SongsInPlaylist = ({ playlists }) => {
   const { idPlaylist } = useParams();
 
-  if (!playlists) return <div>loading...</div>;
+  if (!playlists) return <Loading />;
 
   const playlist = playlists.filter((playlist) => {
     return playlist.id === idPlaylist;

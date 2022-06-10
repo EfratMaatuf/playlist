@@ -1,15 +1,13 @@
 import "./SearchPage.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import SongPage from "../SongPage/SongPage";
-import Spinner from "react-bootstrap/Spinner";
+import Loading from "../../components/Loading/Loading";
 
 const SearchPage = () => {
   const [songs, setSongs] = useState([]);
   const [search, setSearch] = useSearchParams();
 
   useEffect(() => {
-    console.log(search);
     const options = {
       method: "GET",
       headers: {
@@ -28,20 +26,11 @@ const SearchPage = () => {
       })
       .catch((err) => console.error(err));
   }, [search]);
-  console.log(songs);
 
-  // if (songs.length === 0) return ("loading...");
-  if (songs.length === 0)
-    return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    );
+  if (songs.length === 0) return <Loading />;
 
   return (
     <div>
-      <h1 className="_search">SearchPage</h1>
-      {/* <input type="search" placeholder="Search song..." className="search" onInput={(e) => setSongs(songList.filter(x => x.name.includes(e.target.value)))} /> */}
       <div>
         <ul className="songList">
           {songs.map((song) => (

@@ -39,7 +39,6 @@ const SongPage = () => {
 
   return (
     <>
-      <div>SongPage</div>
       <div className="songPage">
         <SongWithDetails song={song} />
         <Popup />

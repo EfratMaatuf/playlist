@@ -22,7 +22,6 @@ export default function Header() {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand>
-          {" "}
           <Link to="/">🎧</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,11 +30,6 @@ export default function Header() {
             {user && (
               <Link to="/" className="link">
                 <Navbar.Brand> Home</Navbar.Brand>
-              </Link>
-            )}
-            {user && (
-              <Link to="/PlaylistPage" className="link">
-                <Navbar.Brand> PlaylistsPage</Navbar.Brand>
               </Link>
             )}
           </Nav>

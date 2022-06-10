@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 import "./SongTitle.css";
 const SongTitle = ({ idPlaylist, idSong }) => {
   const [songDetails, setSongDetails] = useState();
@@ -21,7 +22,7 @@ const SongTitle = ({ idPlaylist, idSong }) => {
       .catch((err) => console.error(err));
   }, [idSong]);
 
-  if (!songDetails) return null;
+  if (!songDetails) return <Loading />;
 
   return (
     <Link to={`/Playlist/${idPlaylist}/${idSong}`}>

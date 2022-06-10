@@ -32,6 +32,7 @@ const PlaylistPage = () => {
       .then((response) => setSong(response.result))
       .catch((err) => console.error(err));
   }, [idSong]);
+
   const nextSong = () => {
     const playlist = playlists.filter((playlist) => {
       return playlist.id === idPlaylist;
