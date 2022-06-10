@@ -1,0 +1,15 @@
+.search{
+    display:flex;
+    height: 40px;
+    width: 700px;
+    
+    }
+    ._search{
+        margin-left:7%;
+        display: flex;
+    
+    }
+    .link{
+        color: black;
+            
+    }
