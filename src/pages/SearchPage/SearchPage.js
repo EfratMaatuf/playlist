@@ -51,7 +51,7 @@ const SearchPage = () => {
                   </div>
                   <img
                     src={song.thumbnail.url}
-                    width="360px"
+                    width="500px"
                     height="300px"
                     alt={song.title}
                     className="img"
