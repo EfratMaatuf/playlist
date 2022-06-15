@@ -27,8 +27,8 @@ const SearchPage = () => {
       .catch((err) => console.error(err));
   }, [search]);
 
+  if (!songs) return <div>Not found</div>;
   if (songs.length === 0) return <Loading />;
-
   return (
     <div>
       <div>
