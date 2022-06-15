@@ -47,8 +47,10 @@ const PlaylistPage = () => {
   return (
     <div id="playlistPage">
       <PlaylistList playlists={playlists} />
-      <SongWithDetails song={song} nextSong={nextSong} />
-      <SongsInPlaylist playlists={playlists} />
+      <div id="playlistPageFlex">
+        <SongWithDetails song={song} nextSong={nextSong} />
+        <SongsInPlaylist playlists={playlists} />
+      </div>
     </div>
   );
 };

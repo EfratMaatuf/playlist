@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import "./SongTitle.css";
-const SongTitle = ({ idPlaylist, idSong }) => {
+const SongTitle = ({ idPlaylist, idSongInPlaylist }) => {
   const [songDetails, setSongDetails] = useState();
+
+  const { idSong } = useParams();
   useEffect(() => {
     const options = {
       method: "GET",
@@ -14,20 +16,22 @@ const SongTitle = ({ idPlaylist, idSong }) => {
     };
 
     fetch(
-      `https://simple-youtube-search.p.rapidapi.com/video?search=https://youtu.be/${idSong}`,
+      `https://simple-youtube-search.p.rapidapi.com/video?search=https://youtu.be/${idSongInPlaylist}`,
       options
     )
       .then((response) => response.json())
       .then((response) => setSongDetails(response.result))
       .catch((err) => console.error(err));
-  }, [idSong]);
+  }, [idSongInPlaylist]);
 
   if (!songDetails) return <Loading />;
 
   return (
-    <Link to={`/Playlist/${idPlaylist}/${idSong}`}>
-      <img src={songDetails.thumbnail.url} alt="" id="imgSong" />
-      <div>{songDetails.title}</div>
+    <Link to={`/Playlist/${idPlaylist}/${idSongInPlaylist}`}>
+      <div className={idSongInPlaylist === idSong ? "thisSong" : null}>
+        <img src={songDetails.thumbnail.url} alt="" id="imgSong" />
+        <div>{songDetails.title}</div>
+      </div>
     </Link>
   );
 };

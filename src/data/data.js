@@ -7,7 +7,17 @@ const data = [
   {
     id: "2",
     titlePlaylist: "TitlePlaylist 2",
-    songs: ["6U_5KhaH6IM", "T5Wf3gmF6Do", "Y30pfWIQfoo"],
+    songs: [
+      "6U_5KhaH6IM",
+      "T5Wf3gmF6Do",
+      "Y30pfWIQfoo",
+      "6U_5KhaH6IM",
+      "T5Wf3gmF6Do",
+      "Y30pfWIQfoo",
+      "6U_5KhaH6IM",
+      "T5Wf3gmF6Do",
+      "Y30pfWIQfoo",
+    ],
   },
   {
     id: "3",

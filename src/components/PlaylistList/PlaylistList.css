@@ -1,0 +1,9 @@
+#PlaylistList {
+  display: flex;
+}
+.playlistName {
+  margin: 10px;
+}
+.thisPlaylist {
+  background-color: darkgray;
+}

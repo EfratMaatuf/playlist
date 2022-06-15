@@ -1,3 +1,4 @@
+import "./SongsInPlaylist.css";
 import React from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
@@ -17,7 +18,7 @@ const SongsInPlaylist = ({ playlists }) => {
   return (
     <div id="SongsInPlaylist">
       {playlist[0].songs.map((idSong) => (
-        <SongTitle idPlaylist={idPlaylist} idSong={idSong} />
+        <SongTitle idPlaylist={idPlaylist} idSongInPlaylist={idSong} />
       ))}
     </div>
   );
