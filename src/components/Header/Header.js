@@ -34,18 +34,6 @@ export default function Header() {
           <Link to="/" className="link">🎧 My Playlist</Link>
         </Navbar.Brand>
         <Navbar.Text className="_search"></Navbar.Text>
-        {user && (
-          <Navbar.Text >
-            <Link to="/Login" className="link">
-              <img
-                src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
-                alt=""
-                width="30"
-                height="30"
-              />{" "}
-              {user.email}</Link>
-          </Navbar.Text>
-        )}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

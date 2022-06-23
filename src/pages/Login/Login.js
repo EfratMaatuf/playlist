@@ -12,25 +12,48 @@ const Login = () => {
   const [userEmailRegister, setUserEmailRegister] = useState();
   const [userPassRegister, setUserPassRegister] = useState();
 
-  const login = (e) => {
+  const login = async (e) => {
     console.log("login");
     e.preventDefault();
-    console.log(userEmail);
-    console.log(userPass);
     if (!userEmail) {
     }
     if (!userPass) {
     }
-    if (userEmail === userDb.email && userPass === userDb.pass) {
-      setUser(userDb);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userEmail, password: userPass })
+    };
+    const res = await fetch('http://localhost:3030/api/users/login', requestOptions)
+    const data = await res.json()
+    if (data.token) {
+      localStorage.token = data.token
+      setUser(userEmail)
     }
+    else { console.log("error***"); }
+    return data
   };
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
     console.log("register");
     console.log(userNameRegister);
     console.log(userEmailRegister);
     console.log(userPassRegister);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userEmailRegister, password: userPassRegister, name: userNameRegister })
+    };
+    const res = await fetch('http://localhost:3030/api/users/register', requestOptions)
+    const data = await res.json()
+    console.log(data);
+    if (data.message) {
+      console.log("error");
+    }
+    else {
+      setUser(userEmailRegister)
+      localStorage.token = data.token
+    }
   };
   return (
     <div id="login">
