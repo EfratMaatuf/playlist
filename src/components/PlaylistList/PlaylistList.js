@@ -5,7 +5,6 @@ import Loading from "../../components/Loading/Loading";
 
 const PlaylistList = ({ playlists }) => {
   const { idPlaylist } = useParams();
-  console.log(idPlaylist);
   if (!playlists) {
     return <Loading />;
   }
@@ -13,16 +12,16 @@ const PlaylistList = ({ playlists }) => {
   return (
     <div id="PlaylistList">
       {playlists.map((playlist) => (
-        <Link to={`/Playlist/${playlist.id}/${playlist.songs[0]}`}>
+        <Link to={`/Playlist/${playlist._id}/${playlist.songs[0]}`}>
           <div
             id={playlist.id}
             className={
-              idPlaylist === playlist.id
+              idPlaylist === playlist._id
                 ? "playlistName thisPlaylist"
                 : "playlistName"
             }
           >
-            {playlist.titlePlaylist}
+            {playlist.name}
           </div>
         </Link>
       ))}

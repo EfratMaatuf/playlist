@@ -14,31 +14,25 @@ import {
 
 export default function Header() {
   const { user } = useContext(UserContext);
-  console.log(user);
-
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    navigate(`/SearchPage/?search=${search}`)
-
-  }
-
-
-
+    navigate(`/SearchPage/?search=${search}`);
+  };
   return (
-    <Navbar bg="light" expand="lg"  >
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand >
-          <Link to="/" className="link">🎧 My Playlist</Link>
+        <Navbar.Brand>
+          <Link to="/" className="link">
+            🎧 My Playlist
+          </Link>
         </Navbar.Brand>
         <Navbar.Text className="_search"></Navbar.Text>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-
-          </Nav>
+          <Nav className="me-auto"></Nav>
           {user && (
             <Form onSubmit={onSubmit} className="search d-flex">
               <FormControl
@@ -54,12 +48,9 @@ export default function Header() {
               </Link>
             </Form>
           )}
-          <Navbar.Text>  </Navbar.Text>
+          <Navbar.Text> </Navbar.Text>
         </Navbar.Collapse>
-
       </Container>
     </Navbar>
-
-
   );
 }

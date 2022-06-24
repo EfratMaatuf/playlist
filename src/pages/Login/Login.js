@@ -1,7 +1,6 @@
 import "./Login.css";
 import React, { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
-const userDb = { email: "efrat5454@gmail.com", pass: "123" };
 
 const Login = () => {
   const { setUser } = useContext(UserContext);
@@ -12,47 +11,63 @@ const Login = () => {
   const [userEmailRegister, setUserEmailRegister] = useState();
   const [userPassRegister, setUserPassRegister] = useState();
 
+  const [errorEnterDetailsLogin, setErrorEnterDetailsLogin] = useState(false);
+  const [errorEnterDetailsRegister, setErrorEnterDetailsRegister] =
+    useState(false);
+  const [errorMessage, setErrorMessage] = useState();
   const login = async (e) => {
     console.log("login");
     e.preventDefault();
-    if (!userEmail) {
-    }
-    if (!userPass) {
+    if (!userEmail || !userPass) {
+      setErrorEnterDetailsLogin(true);
     }
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail, password: userPass })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: userEmail, password: userPass }),
     };
-    const res = await fetch('http://localhost:3030/api/users/login', requestOptions)
-    const data = await res.json()
+    const res = await fetch(
+      "http://localhost:3030/api/users/login",
+      requestOptions
+    );
+    const data = await res.json();
     if (data.token) {
-      localStorage.token = data.token
-      setUser(userEmail)
+      localStorage.token = data.token;
+      setUser({ id: data.user._id, email: data.user.email });
+    } else {
+      console.log("Email or password not ...");
     }
-    else { console.log("error***"); }
-    return data
+    return data;
   };
   const register = async (e) => {
     e.preventDefault();
     console.log("register");
-    console.log(userNameRegister);
-    console.log(userEmailRegister);
-    console.log(userPassRegister);
+    if (!userNameRegister || !userEmailRegister || !userPassRegister) {
+      setErrorMessage("Please enter name, email or password");
+      setErrorEnterDetailsRegister(true);
+    }
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmailRegister, password: userPassRegister, name: userNameRegister })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: userEmailRegister,
+        password: userPassRegister,
+        name: userNameRegister,
+      }),
     };
-    const res = await fetch('http://localhost:3030/api/users/register', requestOptions)
-    const data = await res.json()
+    const res = await fetch(
+      "http://localhost:3030/api/users/register",
+      requestOptions
+    );
+    const data = await res.json();
     console.log(data);
     if (data.message) {
       console.log("error");
-    }
-    else {
-      setUser(userEmailRegister)
-      localStorage.token = data.token
+      setErrorMessage(data.message);
+      setErrorEnterDetailsRegister(true);
+    } else {
+      setUser(userEmailRegister);
+      localStorage.token = data.token;
     }
   };
   return (
@@ -95,6 +110,9 @@ const Login = () => {
                 setUserPassRegister(e.target.value);
               }}
             />
+            {errorEnterDetailsRegister && (
+              <div className="errorEnterDetails">{errorMessage}</div>
+            )}
             <button className="buttonLogin">Sign up</button>
           </form>
         </div>
@@ -124,6 +142,11 @@ const Login = () => {
                 setUserPass(e.target.value);
               }}
             />
+            {errorEnterDetailsLogin && (
+              <div className="errorEnterDetails">
+                Please enter email or password
+              </div>
+            )}
             <button className="buttonLogin">Login</button>
           </form>
         </div>

@@ -1,3 +1,9 @@
+.errorEnterDetails {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+}
+
 #login {
   margin: 0;
   padding: 0;

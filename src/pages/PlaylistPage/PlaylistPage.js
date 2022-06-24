@@ -1,6 +1,6 @@
 import "./PlaylistPage.css";
 import React, { useEffect, useState } from "react";
-import data from "../../data/data";
+import dataClient from "../../data/data";
 import PlaylistList from "../../components/PlaylistList/PlaylistList";
 import SongsInPlaylist from "../../components/SongsInPlaylist/SongsInPlaylist";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,8 +12,19 @@ const PlaylistPage = () => {
   const { idPlaylist, idSong } = useParams();
   let navigate = useNavigate();
   useEffect(() => {
-    //fetch to DB
-    setPlaylists(data);
+    const fetchData = async () => {
+      const requestOptions = {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      };
+      const res = await fetch(
+        "http://localhost:3030/api/users/62ab833e45c0a2451b9ae716",
+        requestOptions
+      );
+      const data = await res.json();
+      setPlaylists(data);
+    };
+    fetchData();
   }, []);
   useEffect(() => {
     const options = {
