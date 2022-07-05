@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 
 export default function Header() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
 
@@ -29,6 +29,14 @@ export default function Header() {
             🎧 My Playlist
           </Link>
         </Navbar.Brand>
+
+        <Navbar.Brand>
+          <Link to="/" className="link" onClick={() => setUser("")}>
+            logout
+          </Link>
+        </Navbar.Brand>
+
+
         <Navbar.Text className="_search"></Navbar.Text>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

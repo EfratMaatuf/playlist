@@ -14,12 +14,15 @@ const Login = () => {
   const [errorEnterDetailsLogin, setErrorEnterDetailsLogin] = useState(false);
   const [errorEnterDetailsRegister, setErrorEnterDetailsRegister] =
     useState(false);
+
   const [errorMessage, setErrorMessage] = useState();
   const login = async (e) => {
     console.log("login");
     e.preventDefault();
     if (!userEmail || !userPass) {
+      setErrorMessage("Please enter name, email or password");
       setErrorEnterDetailsLogin(true);
+
     }
     const requestOptions = {
       method: "POST",
@@ -27,7 +30,7 @@ const Login = () => {
       body: JSON.stringify({ email: userEmail, password: userPass }),
     };
     const res = await fetch(
-      "http://localhost:3030/api/users/login",
+      "/api/users/login",
       requestOptions
     );
     const data = await res.json();
@@ -36,6 +39,8 @@ const Login = () => {
       setUser({ id: data.user._id, email: data.user.email });
     } else {
       console.log("Email or password not ...");
+      setErrorMessage("Email or password not ...");
+      setErrorEnterDetailsLogin(true);
     }
     return data;
   };
@@ -56,7 +61,7 @@ const Login = () => {
       }),
     };
     const res = await fetch(
-      "http://localhost:3030/api/users/register",
+      "/api/users/register",
       requestOptions
     );
     const data = await res.json();
@@ -66,7 +71,7 @@ const Login = () => {
       setErrorMessage(data.message);
       setErrorEnterDetailsRegister(true);
     } else {
-      setUser(userEmailRegister);
+      setUser({ id: data.user._id, email: data.user.email });
       localStorage.token = data.token;
     }
   };
@@ -144,8 +149,7 @@ const Login = () => {
             />
             {errorEnterDetailsLogin && (
               <div className="errorEnterDetails">
-                Please enter email or password
-              </div>
+                {errorMessage}              </div>
             )}
             <button className="buttonLogin">Login</button>
           </form>

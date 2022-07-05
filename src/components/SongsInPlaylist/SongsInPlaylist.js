@@ -10,9 +10,9 @@ const SongsInPlaylist = ({ playlists }) => {
   if (!playlists) return <Loading />;
 
   const playlist = playlists.filter((playlist) => {
-    return playlist.id === idPlaylist;
+    return playlist._id === idPlaylist;
   });
-
+  console.log(playlist);
   if (playlist.length === 0) return <div>No songs</div>;
 
   return (

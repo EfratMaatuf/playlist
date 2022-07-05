@@ -1,10 +1,14 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Dropdown from "react-bootstrap/Dropdown";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import UserContext from "../../context/UserContext";
+
 
 export const Popup = () => {
+  const { user } = useContext(UserContext)
+
   const { id } = useParams();
   const [show, setShow] = useState(false);
   const [playlistsName, setPlaylistsName] = useState([]);
@@ -12,8 +16,14 @@ export const Popup = () => {
     name: "choose...",
   });
   const [newPlaylist, setNewPlaylist] = useState();
+  const [viewMessage, setViewMessage] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const addNewPlaylist = async () => {
+  const [viewMessagePl, setViewMessagePl] = useState(false);
+  const [messagePl, setMessagePl] = useState("");
+
+
+  const addSongToPlaylist = async () => {
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -28,14 +38,26 @@ export const Popup = () => {
     );
     const data = await res.json();
     console.log(data);
+    if (data.name) {
+      setMessage("")
+      setMessage("succes")
+      console.log("yes");
+      setViewMessage(true)
+
+    }
+    else {
+      setMessage(data.message)
+      setViewMessage(true)
+    }
+
   };
-  const addSongToPlaylist = async () => {
+  const addPlaylist = async () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: newPlaylist,
-        userId: "62ab833e45c0a2451b9ae716",
+        userId: user.id,
         songs: id,
       }),
     };
@@ -45,10 +67,21 @@ export const Popup = () => {
     );
     const data = await res.json();
     console.log(data);
+    if (data.name) {
+      // setMessagePl("")
+      setMessagePl("succes")
+      setViewMessagePl(true)
+
+      console.log("yes");
+    }
+    else {
+      // setMessagePl("")
+
+      setMessagePl(data.message)
+      setViewMessagePl(true)
+    }
   };
   const handleClose = async () => {
-    // addNewPlaylist();
-    addSongToPlaylist();
 
     setShow(false);
   };
@@ -61,7 +94,7 @@ export const Popup = () => {
         headers: { "Content-Type": "application/json" },
       };
       const res = await fetch(
-        "http://localhost:3030/api/users/62ab833e45c0a2451b9ae716",
+        `http://localhost:3030/api/users/${user.id}`,
         requestOptions
       );
       const data = await res.json();
@@ -84,6 +117,7 @@ export const Popup = () => {
           <Modal.Title>Add to your playlist</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <br />
           <Dropdown>
             <Dropdown.Toggle variant="dark" id="dropdown-basic">
               {choosePlaylistsName.name}
@@ -102,7 +136,14 @@ export const Popup = () => {
                 );
               })}
             </Dropdown.Menu>
+            <Button variant="secondary" onClick={addSongToPlaylist}>
+              +
+            </Button>
           </Dropdown>
+          <br />
+          {viewMessage && (
+            <div className="text-info">{message}</div>
+          )}
           <br />
           or Create Playlist:
           <input
@@ -110,14 +151,23 @@ export const Popup = () => {
             value={newPlaylist}
             onChange={(e) => setNewPlaylist(e.target.value)}
           ></input>
+          <Button variant="secondary" onClick={addPlaylist}>
+            +
+          </Button>
+          {viewMessagePl && (
+            <>
+              <br />
+              <div className="text-info">{messagePl}</div>
+            </>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="dark" onClick={handleClose}>
-            Save Changes
-          </Button>
+          {/* <Button variant="dark" onClick={addPlaylist}>
+            Create playlist and add song
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

@@ -1,12 +1,15 @@
 import "./PlaylistPage.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import dataClient from "../../data/data";
 import PlaylistList from "../../components/PlaylistList/PlaylistList";
 import SongsInPlaylist from "../../components/SongsInPlaylist/SongsInPlaylist";
 import { useNavigate, useParams } from "react-router-dom";
 import SongWithDetails from "../../components/SongWithDetails/SongWithDetails";
+import UserContext from "../../context/UserContext";
 
 const PlaylistPage = () => {
+  const { user } = useContext(UserContext)
+  console.log(user);
   const [playlists, setPlaylists] = useState();
   const [song, setSong] = useState([]);
   const { idPlaylist, idSong } = useParams();
@@ -18,7 +21,7 @@ const PlaylistPage = () => {
         headers: { "Content-Type": "application/json" },
       };
       const res = await fetch(
-        "http://localhost:3030/api/users/62ab833e45c0a2451b9ae716",
+        `/api/users/${user.id}`,
         requestOptions
       );
       const data = await res.json();
