@@ -63,7 +63,7 @@ const PlaylistPage = () => {
       <PlaylistList playlists={playlists} />
       <div id="playlistPageFlex">
         <SongWithDetails song={song} nextSong={nextSong} />
-        <SongsInPlaylist playlists={playlists} />
+        {/* <SongsInPlaylist playlists={playlists} /> */}
       </div>
     </div>
   );
