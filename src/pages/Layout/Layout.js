@@ -14,13 +14,38 @@ const Layout = () => {
   const [idPlaylist, setIdPlaylist] = useState();
   const [idSong, setIdSong] = useState();
 
+
   useEffect(() => {
-    console.log(user);
-    //fetch to DB
-    // setPlaylists(data);
-    setIdPlaylist(data[0].id);
-    setIdSong(data[0].songs[0]);
+    if (user) {
+      console.log(user);
+      const options = {
+        method: "GET",
+        headers: {
+
+        },
+      };
+
+      fetch(
+        `http://localhost:3030/api/playlists/firstPlaylist/${user.id}`
+        ,
+        options
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setIdPlaylist(response.playlist);
+          setIdSong(response.song);
+          console.log(response);
+        })
+
+        .catch((err) => console.error(err));
+    }
+
+
   }, [user]);
+  useEffect(() => {
+    console.log(idPlaylist)
+    console.log(idSong);
+  }, [idPlaylist, idSong])
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -37,14 +62,19 @@ const Layout = () => {
             <>
               <Route path="/Login" element={<Navigate to="/" />} />
               <Route path="/" element={<Navigate to="/Playlist" />} />
-              <Route
-                path="/Playlist"
-                element={<Navigate to={`/Playlist/${idPlaylist}/${idSong}`} />}
-              />
-              <Route
-                path="/Playlist/:idPlaylist/:idSong"
-                element={<PlaylistPage />}
-              />
+              {idPlaylist ? (
+                <>
+                  <Route
+                    path="/Playlist"
+                    element={<Navigate to={`/Playlist/${idPlaylist}/${idSong}`} />}
+                  />
+                  <Route
+                    path="/Playlist/:idPlaylist/:idSong"
+                    element={<PlaylistPage />}
+                  />
+                </>
+              ) : null}
+
               <Route path="/Song/:id" element={<SongPage />} />
               <Route path="/SearchPage" element={<SearchPage />} />
             </>

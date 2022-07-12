@@ -1,5 +1,5 @@
 import "./Login.css";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 
 const Login = () => {
@@ -16,6 +16,30 @@ const Login = () => {
     useState(false);
 
   const [errorMessage, setErrorMessage] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${localStorage.token}`
+        }
+        ,
+      };
+      const res = await fetch(
+        `http://localhost:3030/api/users/checkToken`,
+        requestOptions
+      );
+      const data = await res.json();
+      setUser(data)
+
+    }
+    if (localStorage.token) {
+      fetchData()
+    }
+  }, [])
+
   const login = async (e) => {
     console.log("login");
     e.preventDefault();

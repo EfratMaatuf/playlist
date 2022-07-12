@@ -31,7 +31,7 @@ export default function Header() {
         </Navbar.Brand>
 
         <Navbar.Brand>
-          <Link to="/" className="link" onClick={() => setUser("")}>
+          <Link to="/" className="link" onClick={() => { setUser(""); localStorage.clear() }}>
             logout
           </Link>
         </Navbar.Brand>
