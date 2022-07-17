@@ -15,13 +15,15 @@ const PlaylistList = ({ playlists }) => {
         <Link to={`/Playlist/${playlist._id}/${playlist.songs[0]}`}>
           <div
             id={playlist.id}
-            className={
-              idPlaylist === playlist._id
-                ? "playlistName thisPlaylist"
-                : "playlistName"
-            }
+
           >
-            {playlist.name}
+            <button className={
+              idPlaylist === playlist._id
+                ? "btn btn-outline-dark playlistName thisPlaylist"
+                : "btn btn-outline-dark playlistName"
+            } >
+              {playlist.name}
+            </button>
           </div>
         </Link>
       ))}

@@ -4,6 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import './Popup.css'
 
 
 export const Popup = () => {
@@ -136,8 +137,8 @@ export const Popup = () => {
                 );
               })}
             </Dropdown.Menu>
-            <Button variant="secondary" onClick={addSongToPlaylist}>
-              +
+            <Button className="button_add" variant="secondary" onClick={addSongToPlaylist}>
+              add to playlist
             </Button>
           </Dropdown>
           <br />
@@ -146,13 +147,13 @@ export const Popup = () => {
           )}
           <br />
           or Create Playlist:
-          <input
+          <input className="button_add"
             placeholder="New Playlist..."
             value={newPlaylist}
             onChange={(e) => setNewPlaylist(e.target.value)}
           ></input>
-          <Button variant="secondary" onClick={addPlaylist}>
-            +
+          <Button className="button_add" variant="secondary" onClick={addPlaylist}>
+            create & add
           </Button>
           {viewMessagePl && (
             <>

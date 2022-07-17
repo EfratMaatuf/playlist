@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import Loading from "../Loading/Loading";
 
 const SongWithDetails = ({ song, nextSong }) => {
-  if (song.length === 0) return <Loading />;
+  // if (song.length === 0) return <Loading />;
   return (
     <div id="SongWithDetails">
       <div className="video">

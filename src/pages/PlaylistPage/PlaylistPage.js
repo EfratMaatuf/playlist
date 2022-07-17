@@ -49,7 +49,7 @@ const PlaylistPage = () => {
 
   const nextSong = () => {
     const playlist = playlists.filter((playlist) => {
-      return playlist.id === idPlaylist;
+      return playlist._id === idPlaylist;
     });
     const songs = playlist[0].songs;
     let index = songs.indexOf(idSong);
@@ -66,6 +66,7 @@ const PlaylistPage = () => {
         {/* <SongsInPlaylist playlists={playlists} /> */}
       </div>
     </div>
+
   );
 };
 
