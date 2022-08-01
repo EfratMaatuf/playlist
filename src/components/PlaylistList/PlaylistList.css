@@ -2,7 +2,13 @@
   display: flex;
   flex-wrap:wrap ;
   margin: 2%;
+  align-items: center;
+  font-weight: normal;
+  font-size: 32px;
+  justify-content: flex-start;
+
 }
+
 .playlistName {
   margin: 10px;
 }

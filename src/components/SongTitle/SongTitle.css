@@ -5,12 +5,14 @@
   display: flex;
   margin-right: 30px;
 }
-.thisSong {
+/* .thisSong {
   background-color: darkgray;
-}
+} */
 
 .song{
   display: flex;
+  align-items: center;
+
 }
 .title{
   color: black;

@@ -13,6 +13,8 @@ const SongWithDetails = ({ song, nextSong }) => {
           onEnded={nextSong}
           playing={true}
           controls={true}
+          height={420}
+          width={720}
         />
       </div>
       <h5>{song?.title}</h5>

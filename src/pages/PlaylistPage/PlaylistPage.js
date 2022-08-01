@@ -65,7 +65,7 @@ const PlaylistPage = () => {
       <PlaylistList playlists={playlists} setChange={setChange} />
       <div id="playlistPageFlex">
         <SongWithDetails song={song} nextSong={nextSong} />
-        <SongsInPlaylist playlists={playlists} />
+        <SongsInPlaylist playlists={playlists} idSong={idSong} />
       </div>
     </div>
 

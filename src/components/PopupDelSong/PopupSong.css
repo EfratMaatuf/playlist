@@ -1,0 +1,13 @@
+.deleteimg{
+    height: 15px;
+    margin-right: 10px;
+
+    
+}
+.del{
+    display: flex;
+    align-items: center;
+    /* margin-left: 10px; */
+    /* background-color: white;
+    border-color: white; */
+}

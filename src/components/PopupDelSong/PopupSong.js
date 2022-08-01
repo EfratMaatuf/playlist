@@ -3,7 +3,8 @@ import Modal from "react-bootstrap/Modal";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-// import './Popup.css'
+import deleteImg from "../../images/delete.png"
+import './PopupSong.css'
 
 
 const PopupDelSong = ({ idSong, title, setChange }) => {
@@ -53,8 +54,8 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
 
   return (
     <>
-      <Button className="x" variant="dark" onClick={handleShow}>
-        x      </Button>
+      <div className="del" onClick={handleShow}>
+        <img src={deleteImg} alt={deleteImg} className="deleteimg" /></div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>delete song</Modal.Title>

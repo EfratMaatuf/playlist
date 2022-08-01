@@ -6,7 +6,7 @@ import SongTitle from "../SongTitle/SongTitle";
 import PopupDelSong from "../PopupDelSong/PopupSong"
 
 
-const SongsInPlaylist = () => {
+const SongsInPlaylist = ({ idSong }) => {
   const { idPlaylist } = useParams();
   const [songs, setSongs] = useState()
   const [change, setChange] = useState()
@@ -30,7 +30,8 @@ const SongsInPlaylist = () => {
 
   return (
     <div id="SongsInPlaylist">
-      {songs?.map((song) => (<div className="songs">
+
+      {songs?.map((song) => (<div className={song.id === idSong ? "thisSong songs" : "songs"}>
         <SongTitle idPlaylist={idPlaylist} idSong={song.id} img={song.img} title={song.title} />
         <PopupDelSong idSong={song.id} title={song.title} setChange={setChange} />
       </div>

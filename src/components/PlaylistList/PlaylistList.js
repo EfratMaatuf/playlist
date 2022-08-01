@@ -12,6 +12,7 @@ const PlaylistList = ({ playlists, setChange }) => {
 
   return (
     <div id="PlaylistList">
+      My playlists :
       {playlists.map((playlist) => (<>
         <Link to={`/Playlist/${playlist._id}/${playlist.songs[0]}`}>
           <div
@@ -27,11 +28,11 @@ const PlaylistList = ({ playlists, setChange }) => {
             </button>
           </div>
         </Link>
-        <div>
+        {/* <div>
           {idPlaylist === playlist._id
             ? <PopupDel setChange={setChange} />
             : null
-          }</div>
+          }</div> */}
 
       </>
       ))}
