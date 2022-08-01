@@ -30,10 +30,10 @@ const SongsInPlaylist = () => {
 
   return (
     <div id="SongsInPlaylist">
-      {songs?.map((song) => (<>
+      {songs?.map((song) => (<div className="songs">
         <SongTitle idPlaylist={idPlaylist} idSong={song.id} img={song.img} title={song.title} />
         <PopupDelSong idSong={song.id} title={song.title} setChange={setChange} />
-      </>
+      </div>
       ))}
     </div>
   );
