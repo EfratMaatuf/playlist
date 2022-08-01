@@ -44,6 +44,7 @@ export const Popup = () => {
       setMessage("succes")
       console.log("yes");
       setViewMessage(true)
+      handleClose()
 
     }
     else {
@@ -74,6 +75,7 @@ export const Popup = () => {
       setViewMessagePl(true)
 
       console.log("yes");
+      handleClose()
     }
     else {
       // setMessagePl("")

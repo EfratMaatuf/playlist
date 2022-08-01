@@ -12,6 +12,7 @@
 .song{
   display: flex;
   align-items: center;
+  align-items: stretch;
 
 }
 .title{

@@ -26,7 +26,7 @@ const SongsInPlaylist = ({ idSong }) => {
   }, [idPlaylist, change])
 
 
-  if (songs?.length === 0) return <div>No songs</div>;
+  if (songs?.length === 0) return <div className="songs">No songs</div>;
 
   return (
     <div id="SongsInPlaylist">

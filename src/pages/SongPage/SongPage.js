@@ -30,7 +30,7 @@ const SongPage = () => {
   }, []);
   console.log(song);
 
-  if (song.length === 0)
+  if (song?.length === 0)
     return (
       <Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
@@ -39,9 +39,11 @@ const SongPage = () => {
 
   return (
     <>
-      <div className="songPage">
-        <SongWithDetails song={song} />
-        <Popup />
+      <div className="songPage0">
+        <div className="songPage">
+          <SongWithDetails song={song} />
+          <Popup />
+        </div>
       </div>
     </>
   );
