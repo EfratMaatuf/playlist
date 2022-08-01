@@ -11,7 +11,9 @@ const PlaylistPage = () => {
   const { user } = useContext(UserContext)
   console.log(user);
   const [playlists, setPlaylists] = useState();
+  const [change, setChange] = useState([]);
   const [song, setSong] = useState([]);
+
   const { idPlaylist, idSong } = useParams();
   let navigate = useNavigate();
   useEffect(() => {
@@ -28,7 +30,7 @@ const PlaylistPage = () => {
       setPlaylists(data);
     };
     fetchData();
-  }, []);
+  }, [change]);
   useEffect(() => {
     const options = {
       method: "GET",
@@ -60,10 +62,10 @@ const PlaylistPage = () => {
   };
   return (
     <div id="playlistPage">
-      <PlaylistList playlists={playlists} />
+      <PlaylistList playlists={playlists} setChange={setChange} />
       <div id="playlistPageFlex">
         <SongWithDetails song={song} nextSong={nextSong} />
-        {/* <SongsInPlaylist playlists={playlists} /> */}
+        <SongsInPlaylist playlists={playlists} />
       </div>
     </div>
 

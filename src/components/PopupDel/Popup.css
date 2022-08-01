@@ -1,0 +1,11 @@
+.x{
+    border-radius: 50%;
+    height: max-content;
+    width: 40px;
+    height: 41px;
+
+    font-size: x-large;
+    color: black;
+    background-color: white;
+    border-color: white;
+}

@@ -34,7 +34,7 @@ export const Popup = () => {
       }),
     };
     const res = await fetch(
-      "http://localhost:3030/api/playlists/addSong",
+      `http://localhost:3030/api/playlists/addSong`,
       requestOptions
     );
     const data = await res.json();
@@ -63,7 +63,7 @@ export const Popup = () => {
       }),
     };
     const res = await fetch(
-      "http://localhost:3030/api/playlists/addPlaylist",
+      `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );
     const data = await res.json();

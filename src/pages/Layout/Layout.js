@@ -30,6 +30,7 @@ const Layout = () => {
         ,
         options
       )
+
         .then((response) => response.json())
         .then((response) => {
           setIdPlaylist(response.playlist);

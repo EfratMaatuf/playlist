@@ -1,9 +1,10 @@
 import "./PlaylistList.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import PopupDel from "../PopupDel/Popup"
 
-const PlaylistList = ({ playlists }) => {
+const PlaylistList = ({ playlists, setChange }) => {
   const { idPlaylist } = useParams();
   if (!playlists) {
     return <Loading />;
@@ -11,7 +12,7 @@ const PlaylistList = ({ playlists }) => {
 
   return (
     <div id="PlaylistList">
-      {playlists.map((playlist) => (
+      {playlists.map((playlist) => (<>
         <Link to={`/Playlist/${playlist._id}/${playlist.songs[0]}`}>
           <div
             id={playlist.id}
@@ -26,6 +27,13 @@ const PlaylistList = ({ playlists }) => {
             </button>
           </div>
         </Link>
+        <div>
+          {idPlaylist === playlist._id
+            ? <PopupDel setChange={setChange} />
+            : null
+          }</div>
+
+      </>
       ))}
     </div>
   );
