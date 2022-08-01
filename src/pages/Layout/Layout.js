@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import SearchPage from "../SearchPage/SearchPage";
@@ -10,9 +10,8 @@ import data from "../../data/data";
 
 const Layout = () => {
   const [user, setUser] = useState();
-  // const [playlists, setPlaylists] = useState();
-  const [idPlaylist, setIdPlaylist] = useState();
-  const [idSong, setIdSong] = useState();
+  const [idPlaylist, setIdPlaylist] = useState("");
+  const [idSong, setIdSong] = useState("");
 
 
   useEffect(() => {
@@ -21,6 +20,7 @@ const Layout = () => {
       const options = {
         method: "GET",
         headers: {
+          'Authorization': `Bearer ${localStorage.token}`
 
         },
       };
@@ -30,11 +30,13 @@ const Layout = () => {
         ,
         options
       )
+
         .then((response) => response.json())
         .then((response) => {
           setIdPlaylist(response.playlist);
           setIdSong(response.song);
           console.log(response);
+
         })
 
         .catch((err) => console.error(err));
@@ -48,7 +50,7 @@ const Layout = () => {
   }, [idPlaylist, idSong])
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, setIdPlaylist, setIdSong }}>
       <div>
         <Header />
         <Routes>

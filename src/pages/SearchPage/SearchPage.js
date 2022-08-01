@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 
+
 const SearchPage = () => {
   const [songs, setSongs] = useState([]);
   const [search, setSearch] = useSearchParams();
@@ -46,8 +47,9 @@ const SearchPage = () => {
                     <p>{song.duration_formatted}</p>
 
                     <button className="btn btn-outline-dark">
-                      add to playlist
-                    </button>
+                      go to song                    </button>
+
+
                   </div>
                   <img
                     src={song.thumbnail.url}

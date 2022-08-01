@@ -1,24 +1,39 @@
 import "./SongsInPlaylist.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
+import PopupDelSong from "../PopupDelSong/PopupSong"
 
-const SongsInPlaylist = ({ playlists }) => {
+
+const SongsInPlaylist = () => {
   const { idPlaylist } = useParams();
+  const [songs, setSongs] = useState()
+  const [change, setChange] = useState()
 
-  if (!playlists) return <Loading />;
+  // if (!playlists) return <Loading />;
 
-  const playlist = playlists.filter((playlist) => {
-    return playlist._id === idPlaylist;
-  });
-  console.log(playlist);
-  if (playlist.length === 0) return <div>No songs</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        `http://localhost:3030/api/playlists/songsList/${idPlaylist}`,
+      );
+      const data = await res.json();
+      console.log(data);
+      setSongs(data)
+    }
+    fetchData()
+  }, [idPlaylist, change])
+
+
+  if (songs?.length === 0) return <div>No songs</div>;
 
   return (
     <div id="SongsInPlaylist">
-      {playlist[0].songs.map((idSong) => (
-        <SongTitle idPlaylist={idPlaylist} idSongInPlaylist={idSong} />
+      {songs?.map((song) => (<>
+        <SongTitle idPlaylist={idPlaylist} idSong={song.id} img={song.img} title={song.title} />
+        <PopupDelSong idSong={song.id} title={song.title} setChange={setChange} />
+      </>
       ))}
     </div>
   );

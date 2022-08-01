@@ -1,9 +1,11 @@
 #PlaylistList {
   display: flex;
+  flex-wrap:wrap ;
+  margin: 2%;
 }
 .playlistName {
   margin: 10px;
 }
 .thisPlaylist {
-  background-color: darkgray;
+  background-color: rgb(241, 238, 147);
 }

@@ -13,7 +13,8 @@ import {
 } from "react-bootstrap";
 
 export default function Header() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setIdPlaylist, setIdSong } = useContext(UserContext);
+
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
 
@@ -31,7 +32,7 @@ export default function Header() {
         </Navbar.Brand>
 
         <Navbar.Brand>
-          <Link to="/" className="link" onClick={() => { setUser(""); localStorage.clear() }}>
+          <Link to="/" className="link" onClick={() => { setUser(""); localStorage.clear(); setIdPlaylist(""); setIdSong("") }}>
             logout
           </Link>
         </Navbar.Brand>
