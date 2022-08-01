@@ -32,7 +32,9 @@ const Login = () => {
         requestOptions
       );
       const data = await res.json();
-      setUser(data)
+      if (data.id) {
+        setUser(data)
+      }
 
     }
     if (localStorage.token) {

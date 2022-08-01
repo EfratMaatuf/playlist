@@ -1,5 +1,13 @@
 #SongsInPlaylist {
   height: 70vh;
-  width: 20%;
+  width: 40%;
   overflow-y: scroll;
+  margin-left: 60px;
+    margin-top: 26px;
+
+}
+
+.songs{
+  display: flex;
+  justify-content: space-between;
 }
