@@ -3,6 +3,7 @@ import ReactPlayer from "react-player";
 import Loading from "../Loading/Loading";
 import './SongWithDetails.css'
 
+
 const SongWithDetails = ({ song, nextSong }) => {
   if (song?.length === 0) return <Loading />;
   return (
@@ -13,6 +14,8 @@ const SongWithDetails = ({ song, nextSong }) => {
           onEnded={nextSong}
           playing={true}
           controls={true}
+          height={420}
+          width={720}
         />
       </div>
       <h5>{song?.title}</h5>
@@ -20,6 +23,7 @@ const SongWithDetails = ({ song, nextSong }) => {
         {(song?.views / 1000).toFixed()}k views • {song?.uploadedAt}
       </p>
       <p>{song?.duration_formatted}</p>
+
     </div>
   );
 };

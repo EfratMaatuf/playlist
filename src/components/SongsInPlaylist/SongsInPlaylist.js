@@ -5,7 +5,7 @@ import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
 import PopupDelSong from "../PopupDelSong/PopupSong";
 
-const SongsInPlaylist = () => {
+const SongsInPlaylist = ({ idSong }) => {
   const { idPlaylist } = useParams();
   const [songs, setSongs] = useState([]);
   const [change, setChange] = useState();
@@ -24,12 +24,12 @@ const SongsInPlaylist = () => {
     fetchData();
   }, [idPlaylist, change]);
 
-  if (songs?.length === 0) return <div>No songs</div>;
+  if (songs?.length === 0) return <div className="songs">No songs</div>;
 
   return (
     <div id="SongsInPlaylist">
       {songs?.map((song) => (
-        <>
+        <div className={song.id === idSong ? "thisSong songs" : "songs"}>
           <SongTitle
             idPlaylist={idPlaylist}
             idSong={song.id}
@@ -41,7 +41,7 @@ const SongsInPlaylist = () => {
             title={song.title}
             setChange={setChange}
           />
-        </>
+        </div>
       ))}
     </div>
   );

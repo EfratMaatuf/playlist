@@ -1,8 +1,20 @@
 #imgSong {
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 130px;
   object-fit: contain;
+  display: flex;
+  margin-right: 30px;
 }
-.thisSong {
+/* .thisSong {
   background-color: darkgray;
+} */
+
+.song{
+  display: flex;
+  align-items: center;
+  align-items: stretch;
+
+}
+.title{
+  color: black;
 }

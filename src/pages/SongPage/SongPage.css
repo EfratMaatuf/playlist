@@ -3,6 +3,11 @@
   margin-top: 8%;
 
 }
+.songPage0{
+  display: flex;
+  justify-content: center;
+
+}
 
 .songPage {
   float: right;

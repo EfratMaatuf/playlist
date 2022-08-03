@@ -31,12 +31,10 @@ const Login = () => {
         requestOptions
       );
       const data = await res.json();
-      setUser(data);
+      if (data.id) {
+        setUser(data);
+      }
     };
-    console.log(
-      "🚀 ~ file: Login.js ~ line 39 ~ useEffect ~ localStorage.token",
-      localStorage.token
-    );
     if (localStorage.token) {
       fetchData();
     }

@@ -27,10 +27,11 @@ const SongTitle = ({ idPlaylist, idSong, img, title }) => {
   // if (!songDetails) return <Loading />;
 
   return (
-    <Link to={`/Playlist/${idPlaylist}/${idSong}`}>
-      <div className={idSongUrl === idSong ? "thisSong" : null}>
+    <Link to={`/Playlist/${idPlaylist}/${idSong}`} >
+      <div className={idSongUrl === idSong ? "thisSong song" : "song"}>
         <img src={img} alt="" id="imgSong" />
-        <div>{title}</div>
+        <div className="title">{title}</div>
+
       </div>
     </Link>
   );
