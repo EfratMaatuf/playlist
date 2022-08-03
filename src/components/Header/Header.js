@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 
 export default function Header() {
-  const { user, setUser, setIdPlaylist, setIdSong } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
@@ -26,17 +26,23 @@ export default function Header() {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to="/" className="link">
+          <Link to="/Home" className="link">
             🎧 My Playlist
           </Link>
         </Navbar.Brand>
 
         <Navbar.Brand>
-          <Link to="/" className="link" onClick={() => { setUser(""); localStorage.clear(); setIdPlaylist(""); setIdSong("") }}>
+          <Link
+            to="/"
+            className="link"
+            onClick={() => {
+              setUser("");
+              localStorage.clear();
+            }}
+          >
             logout
           </Link>
         </Navbar.Brand>
-
 
         <Navbar.Text className="_search"></Navbar.Text>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

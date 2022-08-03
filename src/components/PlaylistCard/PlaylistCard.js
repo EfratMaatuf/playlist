@@ -2,21 +2,23 @@ import React from "react";
 import playImg from "../../images/play.png";
 import deleteImg from "../../images/delete.png";
 import "./PlaylistCard.css";
-const PlaylistCard = () => {
+import PopupDel from "../PopupDel/Popup";
+import { Link } from "react-router-dom";
+const PlaylistCard = ({ name, img, playlist, firstSong, songsNumber }) => {
   return (
-    <div class="playlistCard">
-      <img
-        src="https://www.w3schools.com/howto/img_avatar.png"
-        alt="playlist"
-        className="imgCard"
-      />
+    <div className="playlistCard">
+      <div className="playlistImg" style={{ backgroundImage: `url(${img})` }}>
+        <div className="songsNumber">{songsNumber} songs</div>
+      </div>
       <div className="containerCard">
-        <h4>
-          <b>John Doe</b>
+        <h4 className="nameSongCard">
+          <b>{name}</b>
         </h4>
-        <div>
-          <img src={playImg} alt="delete" />
-          <img src={deleteImg} alt="delete" />
+        <div className="icons">
+          <Link to={`/Playlist/${playlist}/${firstSong}`}>
+            <img src={playImg} alt="play" className="iconPlay" />
+          </Link>
+          <PopupDel idPlaylist={playlist} playlistName={name} />
         </div>
       </div>
     </div>

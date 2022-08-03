@@ -23,22 +23,24 @@ const Login = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${localStorage.token}`
-        }
-        ,
+          Authorization: `Bearer ${localStorage.token}`,
+        },
       };
       const res = await fetch(
         `http://localhost:3030/api/users/checkToken`,
         requestOptions
       );
       const data = await res.json();
-      setUser(data)
-
-    }
+      setUser(data);
+    };
+    console.log(
+      "🚀 ~ file: Login.js ~ line 39 ~ useEffect ~ localStorage.token",
+      localStorage.token
+    );
     if (localStorage.token) {
-      fetchData()
+      fetchData();
     }
-  }, [])
+  }, []);
 
   const login = async (e) => {
     console.log("login");
@@ -46,17 +48,13 @@ const Login = () => {
     if (!userEmail || !userPass) {
       setErrorMessage("Please enter name, email or password");
       setErrorEnterDetailsLogin(true);
-
     }
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: userEmail, password: userPass }),
     };
-    const res = await fetch(
-      "/api/users/login",
-      requestOptions
-    );
+    const res = await fetch("/api/users/login", requestOptions);
     const data = await res.json();
     if (data.token) {
       localStorage.token = data.token;
@@ -84,10 +82,7 @@ const Login = () => {
         name: userNameRegister,
       }),
     };
-    const res = await fetch(
-      "/api/users/register",
-      requestOptions
-    );
+    const res = await fetch("/api/users/register", requestOptions);
     const data = await res.json();
     console.log(data);
     if (data.message) {
@@ -172,8 +167,7 @@ const Login = () => {
               }}
             />
             {errorEnterDetailsLogin && (
-              <div className="errorEnterDetails">
-                {errorMessage}              </div>
+              <div className="errorEnterDetails">{errorMessage} </div>
             )}
             <button className="buttonLogin">Login</button>
           </form>

@@ -1,15 +1,47 @@
 .playlistCard {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 20%;
+  width: 260px;
+  margin: 10px;
 }
+
+.playlistImg {
+  height: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-size: 100% 100%;
+}
+.songsNumber {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 9px black;
+}
+
 .imgCard {
   width: 100%;
 }
 .playlistCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
+.nameSongCard {
+  padding-bottom: 8px;
+}
 .containerCard {
   padding: 2px 16px;
+  padding-bottom: 8px;
+  padding-top: 13px;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.iconPlay {
+  height: 30px;
+}
+.iconDelete {
+  height: 20px;
 }
