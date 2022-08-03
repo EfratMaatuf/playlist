@@ -4,15 +4,15 @@ import deleteImg from "../../images/delete.png";
 import "./PlaylistCard.css";
 import PopupDel from "../PopupDel/Popup";
 import { Link } from "react-router-dom";
+import defaultImg from "../../images/defaultImg.jpg"
 const PlaylistCard = ({ name, img, playlist, firstSong, songsNumber }) => {
   return (
     <div className="playlistCard">
-      <div className="playlistImg" style={{ backgroundImage: `url(${img})` }}>
-        <div className="songsNumber">{songsNumber} songs</div>
-      </div>
+      <img className="playlistImg" src={img ? img : defaultImg} alt="img" />
       <div className="containerCard">
         <h4 className="nameSongCard">
           <b>{name}</b>
+          <span className="songsNumber">{songsNumber} songs</span>
         </h4>
         <div className="icons">
           <Link to={`/Playlist/${playlist}/${firstSong}`}>

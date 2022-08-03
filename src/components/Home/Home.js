@@ -34,11 +34,11 @@ const Home = () => {
         return (
           <PlaylistCard
             name={playlist.name}
-            img={playlist.img}
+            img={playlist.songs[0]?.img}
             key={playlist._id}
             playlist={playlist._id}
-            firstSong={playlist.firstSong}
-            songsNumber={playlist.songsNumber}
+            firstSong={playlist.songs[0]?.songId}
+            songsNumber={playlist.songs.length}
           />
         );
       })}

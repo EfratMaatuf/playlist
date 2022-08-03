@@ -1,23 +1,15 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import deleteImg from "../../images/delete.png";
 import "./Popup.css";
 
-const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
+const PopupDel = ({ playlistName, idPlaylist }) => {
   const { user } = useContext(UserContext);
 
   // const { idPlaylist } = useParams();
   const [show, setShow] = useState(false);
-  const [playlist, setPlaylist] = useState();
-
-  const [viewMessage, setViewMessage] = useState(false);
-  const [message, setMessage] = useState("");
-
-  const [viewMessagePl, setViewMessagePl] = useState(false);
-  const [messagePl, setMessagePl] = useState("");
 
   const delPlaylist = async () => {
     const requestOptions = {
@@ -29,7 +21,7 @@ const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
     );
     const data = await res.json();
     console.log(data);
-    setChange(idPlaylist);
+    // setChange(idPlaylist);
     handleClose();
   };
   // useEffect(() => {
