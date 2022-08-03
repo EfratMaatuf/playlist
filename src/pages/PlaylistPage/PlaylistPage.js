@@ -54,11 +54,22 @@ const PlaylistPage = () => {
       return playlist._id === idPlaylist;
     });
     const songs = playlist[0].songs;
-    let index = songs.indexOf(idSong);
-    index++;
-    if (songs.length !== index) {
-      navigate(`/Playlist/${idPlaylist}/${songs[index]}`);
+    let flag = false
+    let nextIdSong;
+    for (let i of songs) {
+      if (flag) { nextIdSong = i.songId }
+      else {
+        if (i.songId === idSong) {
+          flag = true
+        }
+      }
     }
+
+    if (nextIdSong) {
+      navigate(`/Playlist/${idPlaylist}/${nextIdSong}`);
+    }
+
+
   };
   return (
     <div id="playlistPage">

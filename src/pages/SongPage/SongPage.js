@@ -42,7 +42,7 @@ const SongPage = () => {
       <div className="songPage0">
         <div className="songPage">
           <SongWithDetails song={song} />
-          <Popup />
+          <Popup song={song} />
         </div>
       </div>
     </>

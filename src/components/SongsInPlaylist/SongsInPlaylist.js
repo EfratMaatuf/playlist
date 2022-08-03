@@ -23,6 +23,7 @@ const SongsInPlaylist = ({ idSong }) => {
       setSongs(data)
     }
     fetchData()
+
   }, [idPlaylist, change])
 
 

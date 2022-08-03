@@ -1,5 +1,5 @@
 .errorEnterDetails {
-  color: red;
+  /* color: red; */
   text-align: center;
   font-size: 14px;
 }
@@ -12,18 +12,31 @@
   align-items: center;
   min-height: 100vh;
   font-family: "Jost", sans-serif;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
 }
 .main {
-  width: 350px;
+  /* width: 350px;
   height: 500px;
   margin: 26px;
-  background: red;
+  /* background: rgb(5, 5, 5); */
+  /* background: white; */
+  /* overflow: hidden; */
+  /* background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") */
+    /* no-repeat center/ cover; */
+  /* border-radius: 10px; */
+  /* box-shadow: 5px 20px 50px #000;  */
+
+
+  width: 500px;
+  height: 500px;
+  margin: 26px;
+  /* background: rgb(5, 5, 5); */
+  background: white;
   overflow: hidden;
-  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-    no-repeat center/ cover;
+  /* background: url(https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/0352236…/0352236…/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=0352236…&hash=tfhgbs86ka6divo3llbvp93mg4csvb38); */
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
+
 }
 #chk {
   display: none;
@@ -34,7 +47,8 @@
   height: 100%;
 }
 label {
-  color: #fff;
+  /* color: #fff; */
+  color: #08a489;
   font-size: 2.3em;
   justify-content: center;
   display: flex;
@@ -42,10 +56,12 @@ label {
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  font-family: 'Kalam', cursive;
+
 }
 .inputLogin {
-  width: 60%;
-  height: 20px;
+  width: 80%;
+  height: 40px;
   background: #e0dede;
   justify-content: center;
   display: flex;
@@ -56,13 +72,14 @@ label {
   border-radius: 5px;
 }
 .buttonLogin {
-  width: 60%;
+  /* width: 80%;
   height: 40px;
   margin: 10px auto;
   justify-content: center;
   display: block;
   color: #fff;
-  background: #573b8a;
+  /* background: #573b8a; */
+  /* background: rgb(42, 111, 180);
   font-size: 1em;
   font-weight: bold;
   margin-top: 20px;
@@ -71,20 +88,50 @@ label {
   border-radius: 5px;
   transition: 0.2s ease-in;
   cursor: pointer;
+  font-family: 'Kalam', cursive;  */
+
+
+
+  width: 80%;
+  height: 40px;
+  margin: 10px auto;
+  justify-content: center;
+  display: block;
+  color: #08a489;
+  /* background: #573b8a; */
+  background: #f9fafb;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  outline: none;
+  border: solid;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+  font-family: 'Kalam', cursive;
 }
 .buttonLogin:hover {
-  background: #6d44b8;
+  /* background: #6d44b8; */
+  background:#08a489;
+  color: white;
 }
 .login {
   height: 460px;
-  background: #eee;
+  /* background: #eee; */
+  background: #08a489;
   border-radius: 60% / 10%;
   transform: translateY(-180px);
   transition: 0.8s ease-in-out;
 }
 .login label {
-  color: #573b8a;
+  /* color: #573b8a; */
+  /* color:rgb(42, 111, 180);
+  transform: scale(0.6); */
+
+
+  color: white;
   transform: scale(0.6);
+  padding-top: 7px;
 }
 
 #chk:checked ~ .login {

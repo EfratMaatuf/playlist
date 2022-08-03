@@ -1,6 +1,7 @@
 #SongsInPlaylist {
   height: 70vh;
-  width: 40%;
+  /* width: 40%; */
+  width: 740px;
   overflow-y: scroll;
   margin-left: 60px;
     margin-top: 40px;
@@ -20,7 +21,7 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: black; 
+  background: rgb(56, 56, 56); 
   border-radius: 10px;
 }
 

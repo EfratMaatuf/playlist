@@ -1,8 +1,11 @@
 .deleteimg{
     height: 15px;
     margin-right: 10px;
-
-    
+ 
+}
+.deleteimg:hover{
+    cursor: pointer;
+ 
 }
 .del{
     display: flex;

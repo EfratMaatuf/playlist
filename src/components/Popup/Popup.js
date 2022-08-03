@@ -7,7 +7,7 @@ import UserContext from "../../context/UserContext";
 import './Popup.css'
 
 
-export const Popup = () => {
+export const Popup = ({ song }) => {
   const { user } = useContext(UserContext)
 
   const { id } = useParams();
@@ -31,6 +31,8 @@ export const Popup = () => {
       body: JSON.stringify({
         playlistId: choosePlaylistsName.id,
         songId: id,
+        songTitle: song?.title,
+        img: song?.thumbnail.url
       }),
     };
     const res = await fetch(
@@ -61,6 +63,8 @@ export const Popup = () => {
         name: newPlaylist,
         userId: user.id,
         songs: id,
+        songTitle: song?.title,
+        img: song?.thumbnail.url
       }),
     };
     const res = await fetch(
