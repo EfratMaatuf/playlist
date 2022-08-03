@@ -17,10 +17,39 @@
 }
 .songsNumber {
   color: rgb(0, 0, 0);
-  font-family: 'Kalam', cursive;
-  font-size: 20px;
+  font-family: "Kalam", cursive;
+  font-size: 15px;
 }
+.renamePlaylist {
+  height: 30px;
+  cursor: pointer;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  height: 20px;
+  margin-right: 5px;
+}
+.renameAndDelete {
+  display: flex;
+}
+.formRenamePlaylist {
+  display: flex;
+  margin-top: 7px;
+}
+.buttonRenamePlaylist {
+  font-size: 12px;
 
+  border: none;
+  background-color: rgb(34, 174, 149);
+  color: white;
+  border-radius: 4px;
+}
+.inputRename {
+  width: 117px;
+  border: none;
+  border-bottom: 2px solid rgb(34, 174, 149);
+  font-size: 14px;
+  margin-right: 3px;
+}
 .imgCard {
   width: 100%;
 }
@@ -30,8 +59,16 @@
 .nameSongCard {
   padding-bottom: 8px;
   display: flex;
-    justify-content: space-between;
-    font-family: 'Kalam', cursive;}
+  justify-content: space-between;
+  font-family: "Kalam", cursive;
+  align-items: flex-end;
+}
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
 .containerCard {
   padding: 2px 16px;
   padding-bottom: 8px;

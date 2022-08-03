@@ -4,11 +4,12 @@ import Dropdown from "react-bootstrap/Dropdown";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import './Popup.css'
-
+import "./Popup.css";
+import SnackbarContext from "../../context/SnackbarContext";
 
 export const Popup = ({ song }) => {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
+  const { snackbarFunc } = useContext(SnackbarContext);
 
   const { id } = useParams();
   const [show, setShow] = useState(false);
@@ -23,7 +24,6 @@ export const Popup = ({ song }) => {
   const [viewMessagePl, setViewMessagePl] = useState(false);
   const [messagePl, setMessagePl] = useState("");
 
-
   const addSongToPlaylist = async () => {
     const requestOptions = {
       method: "PUT",
@@ -32,7 +32,7 @@ export const Popup = ({ song }) => {
         playlistId: choosePlaylistsName.id,
         songId: id,
         songTitle: song?.title,
-        img: song?.thumbnail.url
+        img: song?.thumbnail.url,
       }),
     };
     const res = await fetch(
@@ -42,18 +42,16 @@ export const Popup = ({ song }) => {
     const data = await res.json();
     console.log(data);
     if (data.name) {
-      setMessage("")
-      setMessage("succes")
+      setMessage("");
+      setMessage("succes");
       console.log("yes");
-      setViewMessage(true)
-      handleClose()
-
+      setViewMessage(true);
+      handleClose();
+      snackbarFunc("Song added");
+    } else {
+      setMessage(data.message);
+      setViewMessage(true);
     }
-    else {
-      setMessage(data.message)
-      setViewMessage(true)
-    }
-
   };
   const addPlaylist = async () => {
     const requestOptions = {
@@ -64,7 +62,7 @@ export const Popup = ({ song }) => {
         userId: user.id,
         songs: id,
         songTitle: song?.title,
-        img: song?.thumbnail.url
+        img: song?.thumbnail.url,
       }),
     };
     const res = await fetch(
@@ -75,21 +73,20 @@ export const Popup = ({ song }) => {
     console.log(data);
     if (data.name) {
       // setMessagePl("")
-      setMessagePl("succes")
-      setViewMessagePl(true)
+      setMessagePl("succes");
+      setViewMessagePl(true);
 
       console.log("yes");
-      handleClose()
-    }
-    else {
+      handleClose();
+      snackbarFunc("Song added");
+    } else {
       // setMessagePl("")
 
-      setMessagePl(data.message)
-      setViewMessagePl(true)
+      setMessagePl(data.message);
+      setViewMessagePl(true);
     }
   };
   const handleClose = async () => {
-
     setShow(false);
   };
   const handleShow = () => setShow(true);
@@ -143,22 +140,29 @@ export const Popup = ({ song }) => {
                 );
               })}
             </Dropdown.Menu>
-            <Button className="button_add" variant="secondary" onClick={addSongToPlaylist}>
+            <Button
+              className="button_add"
+              variant="secondary"
+              onClick={addSongToPlaylist}
+            >
               add to playlist
             </Button>
           </Dropdown>
           <br />
-          {viewMessage && (
-            <div className="text-info">{message}</div>
-          )}
+          {viewMessage && <div className="text-info">{message}</div>}
           <br />
           or Create Playlist:
-          <input className="button_add"
+          <input
+            className="button_add"
             placeholder="New Playlist..."
             value={newPlaylist}
             onChange={(e) => setNewPlaylist(e.target.value)}
           ></input>
-          <Button className="button_add" variant="secondary" onClick={addPlaylist}>
+          <Button
+            className="button_add"
+            variant="secondary"
+            onClick={addPlaylist}
+          >
             create & add
           </Button>
           {viewMessagePl && (

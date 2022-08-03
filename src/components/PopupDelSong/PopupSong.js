@@ -3,16 +3,15 @@ import Modal from "react-bootstrap/Modal";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import deleteImg from "../../images/delete.png"
-import './PopupSong.css'
-
+import deleteImg from "../../images/delete.png";
+import "./PopupSong.css";
+import SnackbarContext from "../../context/SnackbarContext";
 
 const PopupDelSong = ({ idSong, title, setChange }) => {
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
+  const { snackbarFunc } = useContext(SnackbarContext);
 
   const { idPlaylist } = useParams();
-
-
 
   const [show, setShow] = useState(false);
 
@@ -22,14 +21,13 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
   const [viewMessagePl, setViewMessagePl] = useState(false);
   const [messagePl, setMessagePl] = useState("");
 
-
   const delSong = async () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         idPlaylist,
-        idSong
+        idSong,
       }),
     };
     const res = await fetch(
@@ -38,24 +36,21 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
     );
     const data = await res.json();
     console.log(data);
-    setChange(idSong)
-    handleClose()
+    setChange(idSong);
+    handleClose();
+    snackbarFunc("Song deleted");
   };
 
-
-
-
   const handleClose = async () => {
-
     setShow(false);
   };
   const handleShow = () => setShow(true);
 
-
   return (
     <>
       <div className="del" onClick={handleShow}>
-        <img src={deleteImg} alt={deleteImg} className="deleteimg" /></div>
+        <img src={deleteImg} alt={deleteImg} className="deleteimg" />
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>delete song</Modal.Title>
@@ -63,20 +58,18 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
         <Modal.Body>
           <br />
           Do you want delete the playlist {title} ?
-
-
         </Modal.Body>
         <Modal.Footer>
           <Button className="button_add" variant="secondary" onClick={delSong}>
-            yes            </Button>
+            yes{" "}
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-
         </Modal.Footer>
       </Modal>
     </>
   );
 };
 
-export default PopupDelSong
+export default PopupDelSong;

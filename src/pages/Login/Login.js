@@ -54,9 +54,14 @@ const Login = () => {
     };
     const res = await fetch("/api/users/login", requestOptions);
     const data = await res.json();
+    console.log("🚀 ~ file: Login.js ~ line 57 ~ login ~ data", data);
     if (data.token) {
       localStorage.token = data.token;
-      setUser({ id: data.user._id, email: data.user.email });
+      setUser({
+        id: data.user._id,
+        email: data.user.email,
+        name: data.user.name,
+      });
     } else {
       console.log("Email or password not ...");
       setErrorMessage("Email or password not ...");
@@ -88,7 +93,11 @@ const Login = () => {
       setErrorMessage(data.message);
       setErrorEnterDetailsRegister(true);
     } else {
-      setUser({ id: data.user._id, email: data.user.email });
+      setUser({
+        id: data.user._id,
+        email: data.user.email,
+        name: data.user.name,
+      });
       localStorage.token = data.token;
     }
   };

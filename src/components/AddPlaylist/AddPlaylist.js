@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import SnackbarContext from "../../context/SnackbarContext";
 import UserContext from "../../context/UserContext";
 import addPlaylistImg from "../../images/addPlaylist.png";
+import Snackbar from "../Snackbar/Snackbar";
 import "./AddPlaylist.css";
-const AddPlaylist = () => {
+const AddPlaylist = ({ setChange }) => {
   const { user } = useContext(UserContext);
-
+  const { snackbarFunc } = useContext(SnackbarContext);
   const addPlaylist = async (e) => {
     e.preventDefault();
-    console.dir("e.target[0].value:  ", e.target[0].value);
-
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -22,15 +22,15 @@ const AddPlaylist = () => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     if (data.name) {
-      console.log("v");
+      setChange(data.name);
+      snackbarFunc("Playlist added");
+      e.target[0].value = "";
     }
   };
   return (
     <div className="playlistCard">
       <img src={addPlaylistImg} alt="playlist" className="imgAddPlaylist" />
-      {/* <div className="containerCard"> */}
 
       <form onSubmit={addPlaylist} className="formAddPlaylist">
         <input placeholder="Enter new playlist" className="inputNewPlaylist" />
@@ -39,8 +39,6 @@ const AddPlaylist = () => {
           Add Playlist
         </button>
       </form>
-
-      {/* </div> */}
     </div>
   );
 };

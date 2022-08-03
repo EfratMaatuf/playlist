@@ -4,11 +4,11 @@ import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import deleteImg from "../../images/delete.png";
 import "./Popup.css";
+import SnackbarContext from "../../context/SnackbarContext";
 
-const PopupDel = ({ playlistName, idPlaylist }) => {
+const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
   const { user } = useContext(UserContext);
-
-  // const { idPlaylist } = useParams();
+  const { snackbarFunc } = useContext(SnackbarContext);
   const [show, setShow] = useState(false);
 
   const delPlaylist = async () => {
@@ -21,24 +21,14 @@ const PopupDel = ({ playlistName, idPlaylist }) => {
     );
     const data = await res.json();
     console.log(data);
-    // setChange(idPlaylist);
+    if (data._id) {
+      setChange(data._id);
+      snackbarFunc("Playlist deleted");
+    }
     handleClose();
   };
-  // useEffect(() => {
-  //   const playlistName = async () => {
-  //     const res = await fetch(
-  //       `http://localhost:3030/api/playlists/${idPlaylist}`
-  //     );
-  //     const data = await res.json();
-  //     setPlaylist(data);
-  //     console.log(playlist);
-  //   };
-  //   playlistName();
-  // }, [idPlaylist]);
 
-  const handleClose = async () => {
-    setShow(false);
-  };
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (

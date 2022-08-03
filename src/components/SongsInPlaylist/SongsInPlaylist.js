@@ -9,7 +9,6 @@ const SongsInPlaylist = ({ idSong }) => {
   const { idPlaylist } = useParams();
   const [songs, setSongs] = useState([]);
   const [change, setChange] = useState();
-
   // if (!playlists) return <Loading />;
 
   useEffect(() => {

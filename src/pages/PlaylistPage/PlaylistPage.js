@@ -8,8 +8,7 @@ import SongWithDetails from "../../components/SongWithDetails/SongWithDetails";
 import UserContext from "../../context/UserContext";
 
 const PlaylistPage = () => {
-  const { user } = useContext(UserContext)
-  console.log(user);
+  const { user } = useContext(UserContext);
   const [playlists, setPlaylists] = useState();
   const [change, setChange] = useState([]);
   const [song, setSong] = useState([]);
@@ -22,10 +21,7 @@ const PlaylistPage = () => {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       };
-      const res = await fetch(
-        `/api/users/${user.id}`,
-        requestOptions
-      );
+      const res = await fetch(`/api/users/${user.id}`, requestOptions);
       const data = await res.json();
       setPlaylists(data);
     };
@@ -54,13 +50,14 @@ const PlaylistPage = () => {
       return playlist._id === idPlaylist;
     });
     const songs = playlist[0].songs;
-    let flag = false
+    let flag = false;
     let nextIdSong;
     for (let i of songs) {
-      if (flag) { nextIdSong = i.songId }
-      else {
+      if (flag) {
+        nextIdSong = i.songId;
+      } else {
         if (i.songId === idSong) {
-          flag = true
+          flag = true;
         }
       }
     }
@@ -68,8 +65,6 @@ const PlaylistPage = () => {
     if (nextIdSong) {
       navigate(`/Playlist/${idPlaylist}/${nextIdSong}`);
     }
-
-
   };
   return (
     <div id="playlistPage">
@@ -79,7 +74,6 @@ const PlaylistPage = () => {
         <SongsInPlaylist playlists={playlists} idSong={idSong} />
       </div>
     </div>
-
   );
 };
 

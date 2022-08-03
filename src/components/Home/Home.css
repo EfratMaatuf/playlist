@@ -3,3 +3,9 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.userName {
+  font-family: "Kalam", cursive;
+  font-size: 29px;
+  margin-left: 23px;
+  margin-top: 11px;
+}

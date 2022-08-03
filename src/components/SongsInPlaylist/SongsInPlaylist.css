@@ -1,11 +1,10 @@
 #SongsInPlaylist {
   height: 70vh;
   /* width: 40%; */
-  width: 740px;
+  width: 618px;
   overflow-y: scroll;
   margin-left: 60px;
-    margin-top: 40px;
-
+  margin-top: 40px;
 }
 
 /* width */
@@ -15,24 +14,23 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(56, 56, 56); 
+  background: rgb(56, 56, 56);
   border-radius: 10px;
 }
 
- 
-
-.songs{
+.songs {
   display: flex;
   justify-content: space-between;
 }
-.thisSong{
+.thisSong {
   border: solid;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 0px 0px 7px 0px;}
+  box-shadow: 0px 0px 7px 0px;
+}
