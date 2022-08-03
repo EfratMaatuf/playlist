@@ -1,11 +1,14 @@
 .PlaylistsCards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 .userName {
   font-family: "Kalam", cursive;
-  font-size: 29px;
-  margin-left: 23px;
-  margin-top: 11px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  font-weight: bold;
+
 }

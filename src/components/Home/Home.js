@@ -30,7 +30,8 @@ const Home = () => {
   }, [change]);
   return (
     <div>
-      <div className="userName">Hi {user.name},</div>
+      <div className="userName">Hi {user.name}! 🤍
+        What you'd like to hear now?</div>
       <div className="PlaylistsCards">
         <AddPlaylist setChange={setChange} />
         {playlists?.map((playlist) => {

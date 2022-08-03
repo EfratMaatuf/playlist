@@ -17,7 +17,6 @@ import {
 
 export default function Header() {
   const { user, setUser } = useContext(UserContext);
-
   const [search, setSearch] = useState("");
   let navigate = useNavigate();
 

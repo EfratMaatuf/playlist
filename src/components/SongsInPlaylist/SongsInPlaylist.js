@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
 import PopupDelSong from "../PopupDelSong/PopupSong";
+import headphones from "../../images/headphones.png"
 
 const SongsInPlaylist = ({ idSong }) => {
   const { idPlaylist } = useParams();
@@ -23,7 +24,15 @@ const SongsInPlaylist = ({ idSong }) => {
     fetchData();
   }, [idPlaylist, change]);
 
-  if (songs?.length === 0) return <div className="songs">No songs</div>;
+  if (songs?.length === 0) {
+    return (
+      <div className="noSongs0">
+        <img className="imgHeadphones" src={headphones} alt="img" />
+        <div className="noSongs">Oh! You haven't added songs to this playlist</div>
+        <div className="noSongs1">Search for songs you like and add them to a playlist</div>
+      </div>
+    )
+  }
 
   return (
     <div id="SongsInPlaylist">

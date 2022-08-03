@@ -1,4 +1,5 @@
 .deleteImg {
   height: 20px;
   cursor: pointer;
+  margin-right: -12px;
 }

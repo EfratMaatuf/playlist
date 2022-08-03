@@ -66,6 +66,7 @@ const PlaylistPage = () => {
       navigate(`/Playlist/${idPlaylist}/${nextIdSong}`);
     }
   };
+
   return (
     <div id="playlistPage">
       <PlaylistList playlists={playlists} setChange={setChange} />
