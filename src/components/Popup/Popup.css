@@ -1,7 +1,18 @@
-.message{
-    color: blue;
+.text-info{
+    
+    font-family: "Kalam", cursive;
 }
 
 .button_add{
     margin-left: 10px;
+}
+.btnPopup{
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: black 0px 0px 7px 0px;
+    padding: 10px;
+    background-color:  #08a489;
+color: white;
+font-family: "Kalam", cursive;
 }

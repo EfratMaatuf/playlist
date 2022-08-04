@@ -25,6 +25,7 @@ const SongWithDetails = ({ song, nextSong }) => {
             {(song?.views / 1000).toFixed()}k views • {song?.uploadedAt}
           </p>}
         <p>{song?.duration_formatted}</p>
+        {/* <p>{song?.description}</p> */}
       </div>
     );
   }

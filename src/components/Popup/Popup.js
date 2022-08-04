@@ -109,9 +109,10 @@ export const Popup = ({ song }) => {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>
+      <button className="btnPopup" onClick={handleShow}>Add to playlist</button>
+      {/* <Button variant="dark" onClick={handleShow}>
         Add to playlist
-      </Button>
+      </Button> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add to your playlist</Modal.Title>
@@ -147,6 +148,7 @@ export const Popup = ({ song }) => {
           <br />
           {viewMessage && <div className="text-info">{message}</div>}
           <br />
+          {/* <br /> */}
           or Create Playlist:
           <form onSubmit={addPlaylist}>
             <input
@@ -179,6 +181,7 @@ export const Popup = ({ song }) => {
             Create playlist and add song
           </Button> */}
         {/* </Modal.Footer> */}
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );
