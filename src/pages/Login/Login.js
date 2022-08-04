@@ -108,7 +108,7 @@ const Login = () => {
 
         <div className="signup">
           <form onSubmit={register}>
-            <label htmlFor="chk" aria-hidden="true">
+            <label className="labelUp" htmlFor="chk" aria-hidden="true">
               Sign up
             </label>
             <input
@@ -150,7 +150,7 @@ const Login = () => {
 
         <div className="login">
           <form onSubmit={login}>
-            <label htmlFor="chk" aria-hidden="true">
+            <label className="labelIn" htmlFor="chk" aria-hidden="true">
               Login
             </label>
             <input

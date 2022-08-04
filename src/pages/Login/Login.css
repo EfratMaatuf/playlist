@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 86vh;
   font-family: "Jost", sans-serif;
   /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
 }
@@ -27,8 +27,8 @@
   /* box-shadow: 5px 20px 50px #000;  */
 
 
-  width: 500px;
-  height: 500px;
+  width: 430px;
+  height: 440px;
   margin: 26px;
   /* background: rgb(5, 5, 5); */
   background: white;
@@ -46,22 +46,39 @@
   width: 100%;
   height: 100%;
 }
-label {
+.labelUp {
   /* color: #fff; */
   color: #08a489;
   font-size: 2.3em;
   justify-content: center;
   display: flex;
-  margin: 60px;
+  margin: 30px;
+  margin-bottom: 70px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
   font-family: 'Kalam', cursive;
 
+
+}
+.labelIn {
+  /* color: #fff; */
+  color: #08a489;
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin-top: 110px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  font-family: 'Kalam', cursive;
+  padding-top: 13px;
+
 }
 .inputLogin {
   width: 80%;
-  height: 40px;
+  height: 25px;
   background: #e0dede;
   justify-content: center;
   display: flex;
@@ -93,7 +110,7 @@ label {
 
 
   width: 80%;
-  height: 40px;
+  height: 25px;
   margin: 10px auto;
   justify-content: center;
   display: block;
@@ -102,7 +119,7 @@ label {
   background: #f9fafb;
   font-size: 1em;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
   outline: none;
   border: solid;
   border-radius: 5px;
@@ -120,7 +137,7 @@ label {
   /* background: #eee; */
   background: #08a489;
   border-radius: 60% / 10%;
-  transform: translateY(-180px);
+  transform: translateY(-200px);
   transition: 0.8s ease-in-out;
 }
 .login label {
@@ -129,9 +146,10 @@ label {
   transform: scale(0.6); */
 
 
+
   color: white;
-  transform: scale(0.6);
-  padding-top: 7px;
+  transform: scale(0.7);
+  padding-top: 0px;
 }
 
 #chk:checked ~ .login {
