@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Spinner from "react-bootstrap/Spinner";
 import SongWithDetails from "../../components/SongWithDetails/SongWithDetails";
 import { Popup } from "../../components/Popup/Popup";
+import Loading from "../../components/Loading/Loading";
 
 const SongPage = () => {
   const { id } = useParams();
@@ -30,12 +31,7 @@ const SongPage = () => {
   }, []);
   console.log(song);
 
-  if (song?.length === 0)
-    return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    );
+  if (song?.length === 0) return <Loading />;
 
   return (
     <>

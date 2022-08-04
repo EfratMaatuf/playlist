@@ -27,7 +27,8 @@ const Login = () => {
         },
       };
       const res = await fetch(
-        `http://localhost:3030/api/users/checkToken`,
+        `/api/users/checkToken`,
+        // `http://localhost:3030/api/users/checkToken`,
         requestOptions
       );
       const data = await res.json();
@@ -52,7 +53,11 @@ const Login = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: userEmail, password: userPass }),
     };
-    const res = await fetch("/api/users/login", requestOptions);
+    const res = await fetch(
+      // "https://my-playlist-efrat-michal.herokuapp.com/api/users/login",
+      "/api/users/login",
+      requestOptions
+    );
     const data = await res.json();
     console.log("🚀 ~ file: Login.js ~ line 57 ~ login ~ data", data);
     if (data.token) {

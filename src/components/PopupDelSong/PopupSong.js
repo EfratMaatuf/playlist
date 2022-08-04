@@ -31,7 +31,8 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
       }),
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/delSong`,
+      `/api/playlists/delSong`,
+      // `http://localhost:3030/api/playlists/delSong`,
       requestOptions
     );
     const data = await res.json();

@@ -1,29 +1,33 @@
-.songList{
-    list-style: none;
-    margin: 40px;
-        
+.songList {
+  list-style: none;
+  /* margin: 40px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgSongSearchPage {
+  height: 180px;
+  object-fit: contain;
+  width: 233px;
+}
+.song {
+  float: right;
+
+  display: flex;
+  /* margin: 20px; */
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.des {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 30px;
+  color: black;
+  width: 600px;
 }
 
-.song{
-        float: right;
-
-    display: flex;
-    margin: 20px;
-    position: relative;
-    flex-direction: row;
-    align-items: flex-start;
-
-}
-.des{
-    text-align: right;
-    margin-top: 20px;
-    margin-right: 30px;
-    color: black;
-    width: 600px;
-}
-
-.playimg{
-    height: 50px;
-    margin-top: 44px;
-
+.playimg {
+  height: 50px;
+  /* margin-top: 44px; */
 }

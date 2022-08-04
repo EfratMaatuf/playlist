@@ -16,7 +16,8 @@ const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
       method: "PUT",
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/deletePlaylist/${idPlaylist}`,
+      `/api/playlists/deletePlaylist/${idPlaylist}`,
+      // `http://localhost:3030/api/playlists/deletePlaylist/${idPlaylist}`,
       requestOptions
     );
     const data = await res.json();

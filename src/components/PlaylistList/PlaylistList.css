@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   /* margin: 2%; */
-  margin-top: 3%;
+  margin-top: 3px;
   align-items: center;
   font-family: "Kalam", cursive;
   font-weight: normal;
@@ -25,8 +25,7 @@
   width: 200px;
 }
 .thisPlaylist {
-  
-  background-color:  #08a489;
+  background-color: #08a489;
   border: solid;
   border-radius: 5px;
   margin: 10px;

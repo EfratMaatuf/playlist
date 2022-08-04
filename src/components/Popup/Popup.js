@@ -15,7 +15,7 @@ export const Popup = ({ song }) => {
   const [show, setShow] = useState(false);
   const [playlistsName, setPlaylistsName] = useState([]);
   const [choosePlaylistsName, setChoosePlaylistsName] = useState({
-    name: "choose...",
+    name: "Choose playlist...",
   });
   const [newPlaylist, setNewPlaylist] = useState();
   const [viewMessage, setViewMessage] = useState(false);
@@ -36,24 +36,24 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/addSong`,
+      `/api/playlists/addSong`,
+      // `http://localhost:3030/api/playlists/addSong`,
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     if (data.name) {
-      setMessage("");
-      setMessage("succes");
-      console.log("yes");
-      setViewMessage(true);
       handleClose();
       snackbarFunc("Song added");
+      setChoosePlaylistsName({ name: "Choose playlist..." });
+      setViewMessage(false);
+      setViewMessagePl(false);
     } else {
       setMessage(data.message);
       setViewMessage(true);
     }
   };
-  const addPlaylist = async () => {
+  const addPlaylist = async (e) => {
+    e.preventDefault();
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -66,29 +66,24 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/addPlaylist`,
+      `/api/playlists/addPlaylist`,
+      // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );
     const data = await res.json();
     console.log(data);
     if (data.name) {
-      // setMessagePl("")
-      setMessagePl("succes");
-      setViewMessagePl(true);
-
-      console.log("yes");
       handleClose();
       snackbarFunc("Song added");
+      setChoosePlaylistsName({ name: "Choose playlist..." });
+      setViewMessagePl(false);
+      setViewMessage(false);
     } else {
-      // setMessagePl("")
-
       setMessagePl(data.message);
       setViewMessagePl(true);
     }
   };
-  const handleClose = async () => {
-    setShow(false);
-  };
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
@@ -98,7 +93,8 @@ export const Popup = ({ song }) => {
         headers: { "Content-Type": "application/json" },
       };
       const res = await fetch(
-        `http://localhost:3030/api/users/${user.id}`,
+        `/api/users/${user.id}`,
+        // `http://localhost:3030/api/users/${user.id}`,
         requestOptions
       );
       const data = await res.json();
@@ -114,7 +110,7 @@ export const Popup = ({ song }) => {
   return (
     <>
       <Button variant="dark" onClick={handleShow}>
-        add to playlist
+        Add to playlist
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -152,19 +148,22 @@ export const Popup = ({ song }) => {
           {viewMessage && <div className="text-info">{message}</div>}
           <br />
           or Create Playlist:
-          <input
-            className="button_add"
-            placeholder="New Playlist..."
-            value={newPlaylist}
-            onChange={(e) => setNewPlaylist(e.target.value)}
-          ></input>
-          <Button
-            className="button_add"
-            variant="secondary"
-            onClick={addPlaylist}
-          >
-            create & add
-          </Button>
+          <form onSubmit={addPlaylist}>
+            <input
+              className="button_add"
+              placeholder="New Playlist..."
+              value={newPlaylist}
+              onChange={(e) => setNewPlaylist(e.target.value)}
+            ></input>
+            <Button
+              className="button_add"
+              variant="secondary"
+              // onClick={addPlaylist}
+              type="submit"
+            >
+              Create & Add
+            </Button>
+          </form>
           {viewMessagePl && (
             <>
               <br />
@@ -172,14 +171,14 @@ export const Popup = ({ song }) => {
             </>
           )}
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          {/* <Button variant="dark" onClick={addPlaylist}>
+          </Button> */}
+        {/* <Button variant="dark" onClick={addPlaylist}>
             Create playlist and add song
           </Button> */}
-        </Modal.Footer>
+        {/* </Modal.Footer> */}
       </Modal>
     </>
   );

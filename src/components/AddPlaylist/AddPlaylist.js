@@ -18,7 +18,8 @@ const AddPlaylist = ({ setChange }) => {
       }),
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/addPlaylist`,
+      `/api/playlists/addPlaylist`,
+      // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );
     const data = await res.json();
