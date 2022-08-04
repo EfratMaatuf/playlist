@@ -17,11 +17,12 @@ const Home = () => {
         headers: { "Content-Type": "application/json" },
       };
       const res = await fetch(
-        `http://localhost:3030/api/playlists/allPlaylists/${user.id}`,
+        `/api/playlists/allPlaylists/${user.id}`,
+        // `http://localhost:3030/api/playlists/allPlaylists/${user.id}`,
         requestOptions
       );
       const data = await res.json();
-      // console.log(data);
+      console.log("🚀 ~ file: Home.js ~ line 25 ~ fetchData ~ data", data);
       if (!data.message) {
         setPlaylists(data);
       }
@@ -30,8 +31,9 @@ const Home = () => {
   }, [change]);
   return (
     <div>
-      <div className="userName">Hi {user.name}! 🤍
-        What you'd like to hear now?</div>
+      <div className="userName">
+        Hi {user.name}! 🤍 What you'd like to hear now?
+      </div>
       <div className="PlaylistsCards">
         <AddPlaylist setChange={setChange} />
         {playlists?.map((playlist) => {

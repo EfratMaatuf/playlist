@@ -1,5 +1,14 @@
-.loading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.loading {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-border {
+  color: rgb(34, 174, 149);
+  height: 60px;
+  width: 60px;
+  border-block-end-style: inherit;
 }

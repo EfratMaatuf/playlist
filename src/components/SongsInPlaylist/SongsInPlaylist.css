@@ -1,5 +1,5 @@
 #SongsInPlaylist {
-  height: 70vh;
+  height: 65vh;
   /* width: 40%; */
   width: 618px;
   overflow-y: scroll;
@@ -34,12 +34,12 @@
   margin: 10px;
   box-shadow: 0px 0px 7px 0px;
 }
-.noSongs0{
+.noSongs0 {
   display: flex;
   flex-direction: column;
 }
 
-.noSongs{
+.noSongs {
   font-family: "Kalam", cursive;
   font-size: 50px;
   display: flex;
@@ -47,14 +47,13 @@
   margin: 50px;
   font-weight: bold;
 }
-.noSongs1{
+.noSongs1 {
   font-family: "Kalam", cursive;
   font-size: 40px;
   display: flex;
   justify-content: center;
-
 }
-.imgHeadphones{
+.imgHeadphones {
   object-fit: contain;
   height: 120px;
   margin-top: 74px;

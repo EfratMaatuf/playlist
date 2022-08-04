@@ -2,8 +2,7 @@ import "./SearchPage.css";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
-import playImg from "../../images/play.png"
-
+import playImg from "../../images/play.png";
 
 const SearchPage = () => {
   const [songs, setSongs] = useState([]);
@@ -49,16 +48,14 @@ const SearchPage = () => {
 
                     {/* <button className="btn btn-outline-dark">
                       go to song                    </button> */}
-                    <img src={playImg} alt={playImg} className="playimg" />
-
-
+                    {/* <img src={playImg} alt={playImg} className="playimg" /> */}
                   </div>
                   <img
                     src={song.thumbnail.url}
                     width="500px"
                     height="300px"
                     alt={song.title}
-                    className="img"
+                    className="imgSongSearchPage"
                   />
                 </li>
               </Link>

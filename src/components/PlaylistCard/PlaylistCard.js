@@ -6,7 +6,6 @@ import PopupDel from "../PopupDel/Popup";
 import { Link } from "react-router-dom";
 import defaultImg from "../../images/defaultImg.jpg";
 
-
 const PlaylistCard = ({
   name,
   img,
@@ -15,7 +14,6 @@ const PlaylistCard = ({
   songsNumber,
   setChange,
 }) => {
-
   const [rename, setRename] = useState(false);
   const renameFunc = () => {
     console.log("rename");
@@ -34,14 +32,14 @@ const PlaylistCard = ({
       }),
     };
     const res = await fetch(
-      `http://localhost:3030/api/playlists/renamePlaylist`,
+      `/api/playlists/renamePlaylist`,
+      // `http://localhost:3030/api/playlists/renamePlaylist`,
       requestOptions
     );
     const data = await res.json();
     console.log(data);
     setChange(e.target[0].value);
     setRename(!rename);
-
   };
   return (
     <div className="playlistCard">

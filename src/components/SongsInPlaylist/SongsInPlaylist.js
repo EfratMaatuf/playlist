@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
 import PopupDelSong from "../PopupDelSong/PopupSong";
-import headphones from "../../images/headphones.png"
+import headphones from "../../images/headphones.png";
 
 const SongsInPlaylist = ({ idSong }) => {
   const { idPlaylist } = useParams();
@@ -15,7 +15,8 @@ const SongsInPlaylist = ({ idSong }) => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:3030/api/playlists/songsList/${idPlaylist}`
+        `/api/playlists/songsList/${idPlaylist}`
+        // `http://localhost:3030/api/playlists/songsList/${idPlaylist}`
       );
       const data = await res.json();
       console.log(data);
@@ -28,10 +29,14 @@ const SongsInPlaylist = ({ idSong }) => {
     return (
       <div className="noSongs0">
         <img className="imgHeadphones" src={headphones} alt="img" />
-        <div className="noSongs">Oh! You haven't added songs to this playlist</div>
-        <div className="noSongs1">Search for songs you like and add them to a playlist</div>
+        <div className="noSongs">
+          Oh! You haven't added songs to this playlist
+        </div>
+        <div className="noSongs1">
+          Search for songs you like and add them to a playlist
+        </div>
       </div>
-    )
+    );
   }
 
   return (
