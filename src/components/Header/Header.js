@@ -29,7 +29,7 @@ export default function Header() {
       <Container>
         <Navbar.Brand>
           <Link to="/Home" className="link">
-            🎧 My Playlist
+            🎧 My Playlists
           </Link>
         </Navbar.Brand>
 
@@ -41,61 +41,52 @@ export default function Header() {
 
         <Navbar.Text className="_search"></Navbar.Text>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {user && (
-              <Form onSubmit={onSubmit} className="search d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search song..."
-                  className="me-2"
-                  aria-label="Search"
-                  onChange={(e) => setSearch(e.target.value)}
-                  value={search}
-                />
-                <Link to={`/SearchPage/?search=${search}`}>
-                  <Button variant="light">
-                    <img
-                      className="searchImg"
-                      src={searchImg}
-                      alt={searchImg}
-                    />
-                  </Button>
-                </Link>
-              </Form>
-            )}
-          </Nav>
-          {/* {user && (
-            <Form onSubmit={onSubmit} className="search d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search song..."
-                className="me-2"
-                aria-label="Search"
-                onChange={(e) => setSearch(e.target.value)}
-                value={search}
-              />
-              <Link to={`/SearchPage/?search=${search}`}>
-                <Button variant="outline-dark">Search</Button>
-              </Link>
-            </Form>
-          )} */}
+        {user && (
+          <>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Form onSubmit={onSubmit} className="search d-flex">
+                  <FormControl
+                    type="search"
+                    placeholder="Search song..."
+                    className="me-2"
+                    aria-label="Search"
+                    onChange={(e) => setSearch(e.target.value)}
+                    value={search}
+                  />
+                  <Link to={`/SearchPage/?search=${search}`}>
+                    <Button variant="light">
+                      <img
+                        className="searchImg"
+                        src={searchImg}
+                        alt={searchImg}
+                      />
+                    </Button>
+                  </Link>
+                </Form>
 
-          <Navbar.Text> </Navbar.Text>
-        </Navbar.Collapse>
-        <Navbar.Brand>
-          <Link
-            to="/"
-            className="link"
-            onClick={() => {
-              setUser("");
-              localStorage.clear();
-            }}
-          >
-            <img src={logoutImg} alt={logoutImg} className="logoutImg" />
-          </Link>
-        </Navbar.Brand>
+              </Nav>
+
+
+              <Navbar.Text> </Navbar.Text>
+              {/* <Navbar.Brand> */}
+
+            </Navbar.Collapse>
+            <Link
+              to="/"
+              className="link"
+              onClick={() => {
+                setUser("");
+                localStorage.clear();
+              }}
+            >
+              <img src={logoutImg} alt={logoutImg} className="logoutImg" />
+            </Link>
+          </>
+        )}
+
+        {/* </Navbar.Brand> */}
       </Container>
-    </Navbar>
+    </Navbar >
   );
 }
