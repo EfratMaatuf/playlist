@@ -1,7 +1,6 @@
 import "./SongsInPlaylist.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "../Loading/Loading";
 import SongTitle from "../SongTitle/SongTitle";
 import PopupDelSong from "../PopupDelSong/PopupSong";
 import headphones from "../../images/headphones.png";
@@ -13,13 +12,20 @@ const SongsInPlaylist = ({ idSong }) => {
   // if (!playlists) return <Loading />;
 
   useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
+    };
     const fetchData = async () => {
       const res = await fetch(
-        `/api/playlists/songsList/${idPlaylist}`
+        `/api/playlists/songsList/${idPlaylist}`,
+        requestOptions
         // `http://localhost:3030/api/playlists/songsList/${idPlaylist}`
       );
       const data = await res.json();
-      console.log(data);
       setSongs(data);
     };
     fetchData();

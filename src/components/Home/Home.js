@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import AddPlaylist from "../AddPlaylist/AddPlaylist";
 import PlaylistCard from "../PlaylistCard/PlaylistCard";
-import Snackbar from "../Snackbar/Snackbar";
 import "./Home.css";
 const Home = () => {
   const { user } = useContext(UserContext);
@@ -14,7 +13,10 @@ const Home = () => {
     const fetchData = async () => {
       const requestOptions = {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+        },
       };
       const res = await fetch(
         `/api/playlists/allPlaylists/${user.id}`,

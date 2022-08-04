@@ -11,7 +11,10 @@ const AddPlaylist = ({ setChange }) => {
     e.preventDefault();
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         name: e.target[0].value,
         userId: user.id,

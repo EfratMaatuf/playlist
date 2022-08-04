@@ -24,7 +24,10 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
   const delSong = async () => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         idPlaylist,
         idSong,
