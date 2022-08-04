@@ -39,7 +39,7 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/addSong`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addSong`,
       // `http://localhost:3030/api/playlists/addSong`,
       requestOptions
     );
@@ -72,7 +72,7 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/addPlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addPlaylist`,
       // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );
@@ -102,7 +102,7 @@ export const Popup = ({ song }) => {
         },
       };
       const res = await fetch(
-        `/api/users/${user.id}`,
+        `${process.env.REACT_APP_BASE_PATH}/api/users/${user.id}`,
         // `http://localhost:3030/api/users/${user.id}`,
         requestOptions
       );

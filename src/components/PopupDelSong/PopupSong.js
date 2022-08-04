@@ -34,7 +34,7 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/delSong`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/delSong`,
       // `http://localhost:3030/api/playlists/delSong`,
       requestOptions
     );

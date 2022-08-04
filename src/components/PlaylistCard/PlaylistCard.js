@@ -35,7 +35,7 @@ const PlaylistCard = ({
       }),
     };
     const res = await fetch(
-      `/api/playlists/renamePlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/renamePlaylist`,
       // `http://localhost:3030/api/playlists/renamePlaylist`,
       requestOptions
     );

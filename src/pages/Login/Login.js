@@ -27,7 +27,7 @@ const Login = () => {
         },
       };
       const res = await fetch(
-        `/api/users/checkToken`,
+        `${process.env.REACT_APP_BASE_PATH}/api/users/checkToken`,
         // `http://localhost:3030/api/users/checkToken`,
         requestOptions
       );
@@ -55,7 +55,7 @@ const Login = () => {
     };
     const res = await fetch(
       // "https://my-playlist-efrat-michal.herokuapp.com/api/users/login",
-      "/api/users/login",
+      `${process.env.REACT_APP_BASE_PATH}/api/users/login`,
       requestOptions
     );
     const data = await res.json();
@@ -90,7 +90,10 @@ const Login = () => {
         name: userNameRegister,
       }),
     };
-    const res = await fetch("/api/users/register", requestOptions);
+    const res = await fetch(
+      `${process.env.REACT_APP_BASE_PATH}/api/users/register`,
+      requestOptions
+    );
     const data = await res.json();
     console.log(data);
     if (data.message) {

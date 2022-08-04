@@ -24,7 +24,10 @@ const PlaylistPage = () => {
           "Content-Type": "application/json",
         },
       };
-      const res = await fetch(`/api/users/${user.id}`, requestOptions);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_PATH}/api/users/${user.id}`,
+        requestOptions
+      );
       const data = await res.json();
       setPlaylists(data);
     };

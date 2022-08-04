@@ -19,7 +19,7 @@ const Home = () => {
         },
       };
       const res = await fetch(
-        `/api/playlists/allPlaylists/${user.id}`,
+        `${process.env.REACT_APP_BASE_PATH}/api/playlists/allPlaylists/${user.id}`,
         // `http://localhost:3030/api/playlists/allPlaylists/${user.id}`,
         requestOptions
       );

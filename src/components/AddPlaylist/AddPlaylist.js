@@ -21,7 +21,7 @@ const AddPlaylist = ({ setChange }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/addPlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addPlaylist`,
       // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );

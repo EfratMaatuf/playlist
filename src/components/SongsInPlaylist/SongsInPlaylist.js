@@ -21,7 +21,7 @@ const SongsInPlaylist = ({ idSong }) => {
     };
     const fetchData = async () => {
       const res = await fetch(
-        `/api/playlists/songsList/${idPlaylist}`,
+        `${process.env.REACT_APP_BASE_PATH}/api/playlists/songsList/${idPlaylist}`,
         requestOptions
         // `http://localhost:3030/api/playlists/songsList/${idPlaylist}`
       );
