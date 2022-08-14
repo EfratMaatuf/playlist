@@ -68,8 +68,8 @@ const Login = () => {
         name: data.user.name,
       });
     } else {
-      console.log("Email or password not ...");
-      setErrorMessage("Email or password not ...");
+      console.log("Email or password is incorrect");
+      setErrorMessage("Email or password is incorrect");
       setErrorEnterDetailsLogin(true);
     }
     return data;
