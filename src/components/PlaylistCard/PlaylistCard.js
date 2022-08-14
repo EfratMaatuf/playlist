@@ -25,14 +25,17 @@ const PlaylistCard = ({
 
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         idPlaylist: playlist,
         newName: e.target[0].value,
       }),
     };
     const res = await fetch(
-      `/api/playlists/renamePlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/renamePlaylist`,
       // `http://localhost:3030/api/playlists/renamePlaylist`,
       requestOptions
     );

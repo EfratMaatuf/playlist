@@ -19,9 +19,15 @@ const PlaylistPage = () => {
     const fetchData = async () => {
       const requestOptions = {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+        },
       };
-      const res = await fetch(`/api/users/${user.id}`, requestOptions);
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_PATH}/api/users/${user.id}`,
+        requestOptions
+      );
       const data = await res.json();
       setPlaylists(data);
     };

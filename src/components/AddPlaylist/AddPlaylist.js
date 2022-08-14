@@ -11,14 +11,17 @@ const AddPlaylist = ({ setChange }) => {
     e.preventDefault();
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         name: e.target[0].value,
         userId: user.id,
       }),
     };
     const res = await fetch(
-      `/api/playlists/addPlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addPlaylist`,
       // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );

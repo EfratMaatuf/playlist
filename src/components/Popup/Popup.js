@@ -27,7 +27,10 @@ export const Popup = ({ song }) => {
   const addSongToPlaylist = async () => {
     const requestOptions = {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         playlistId: choosePlaylistsName.id,
         songId: id,
@@ -36,7 +39,7 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/addSong`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addSong`,
       // `http://localhost:3030/api/playlists/addSong`,
       requestOptions
     );
@@ -56,7 +59,10 @@ export const Popup = ({ song }) => {
     e.preventDefault();
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         name: newPlaylist,
         userId: user.id,
@@ -66,7 +72,7 @@ export const Popup = ({ song }) => {
       }),
     };
     const res = await fetch(
-      `/api/playlists/addPlaylist`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/addPlaylist`,
       // `http://localhost:3030/api/playlists/addPlaylist`,
       requestOptions
     );
@@ -90,10 +96,13 @@ export const Popup = ({ song }) => {
     const fetchData = async () => {
       const requestOptions = {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+        },
       };
       const res = await fetch(
-        `/api/users/${user.id}`,
+        `${process.env.REACT_APP_BASE_PATH}/api/users/${user.id}`,
         // `http://localhost:3030/api/users/${user.id}`,
         requestOptions
       );
@@ -109,7 +118,9 @@ export const Popup = ({ song }) => {
 
   return (
     <>
-      <button className="btnPopup" onClick={handleShow}>Add to playlist</button>
+      <button className="btnPopup" onClick={handleShow}>
+        Add to playlist
+      </button>
       {/* <Button variant="dark" onClick={handleShow}>
         Add to playlist
       </Button> */}

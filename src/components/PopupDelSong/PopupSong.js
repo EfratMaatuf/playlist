@@ -24,14 +24,17 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
   const delSong = async () => {
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         idPlaylist,
         idSong,
       }),
     };
     const res = await fetch(
-      `/api/playlists/delSong`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/delSong`,
       // `http://localhost:3030/api/playlists/delSong`,
       requestOptions
     );

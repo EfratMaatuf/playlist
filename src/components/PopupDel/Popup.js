@@ -14,9 +14,14 @@ const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
   const delPlaylist = async () => {
     const requestOptions = {
       method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json",
+      },
     };
+
     const res = await fetch(
-      `/api/playlists/deletePlaylist/${idPlaylist}`,
+      `${process.env.REACT_APP_BASE_PATH}/api/playlists/deletePlaylist/${idPlaylist}`,
       // `http://localhost:3030/api/playlists/deletePlaylist/${idPlaylist}`,
       requestOptions
     );
