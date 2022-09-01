@@ -29,7 +29,6 @@ const SongPage = () => {
       .then((response) => setSong(response.result))
       .catch((err) => console.error(err));
   }, []);
-  console.log(song);
 
   if (song?.length === 0) return <Loading />;
 

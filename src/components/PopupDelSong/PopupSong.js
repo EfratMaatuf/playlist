@@ -39,7 +39,6 @@ const PopupDelSong = ({ idSong, title, setChange }) => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     setChange(idSong);
     handleClose();
     snackbarFunc("Song deleted");

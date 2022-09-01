@@ -77,7 +77,6 @@ export const Popup = ({ song }) => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     if (data.name) {
       handleClose();
       snackbarFunc("Song added");

@@ -17,7 +17,6 @@ const Layout = () => {
   const snackbarFunc = (message) => {
     setSnackbar(true);
     setSnackbarMessage(message);
-    console.log(message);
     setTimeout(() => {
       setSnackbar(false);
     }, 3000);
@@ -30,7 +29,6 @@ const Layout = () => {
           <Routes>
             {!user ? (
               <>
-                {console.log("no user")}
                 <Route path="/Login" element={<Login />} />
                 <Route path="*" element={<Navigate to="/Login" />} />
               </>

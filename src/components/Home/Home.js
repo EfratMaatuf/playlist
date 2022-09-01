@@ -24,7 +24,6 @@ const Home = () => {
         requestOptions
       );
       const data = await res.json();
-      console.log("🚀 ~ file: Home.js ~ line 25 ~ fetchData ~ data", data);
       if (!data.message) {
         setPlaylists(data);
       }

@@ -42,7 +42,6 @@ const Login = () => {
   }, []);
 
   const login = async (e) => {
-    console.log("login");
     e.preventDefault();
     if (!userEmail || !userPass) {
       setErrorMessage("Please enter name, email or password");
@@ -59,7 +58,6 @@ const Login = () => {
       requestOptions
     );
     const data = await res.json();
-    console.log("🚀 ~ file: Login.js ~ line 57 ~ login ~ data", data);
     if (data.token) {
       localStorage.token = data.token;
       setUser({
@@ -68,7 +66,6 @@ const Login = () => {
         name: data.user.name,
       });
     } else {
-      console.log("Email or password is incorrect");
       setErrorMessage("Email or password is incorrect");
       setErrorEnterDetailsLogin(true);
     }
@@ -76,7 +73,6 @@ const Login = () => {
   };
   const register = async (e) => {
     e.preventDefault();
-    console.log("register");
     if (!userNameRegister || !userEmailRegister || !userPassRegister) {
       setErrorMessage("Please enter name, email or password");
       setErrorEnterDetailsRegister(true);
@@ -95,9 +91,7 @@ const Login = () => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     if (data.message) {
-      console.log("error");
       setErrorMessage(data.message);
       setErrorEnterDetailsRegister(true);
     } else {

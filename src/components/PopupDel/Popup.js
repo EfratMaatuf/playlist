@@ -26,7 +26,6 @@ const PopupDel = ({ playlistName, idPlaylist, setChange }) => {
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     if (data._id) {
       setChange(data._id);
       snackbarFunc("Playlist deleted");

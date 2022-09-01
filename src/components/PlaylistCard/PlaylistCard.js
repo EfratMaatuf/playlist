@@ -16,12 +16,10 @@ const PlaylistCard = ({
 }) => {
   const [rename, setRename] = useState(false);
   const renameFunc = () => {
-    console.log("rename");
     setRename(!rename);
   };
   const update = async (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
 
     const requestOptions = {
       method: "POST",
@@ -40,7 +38,6 @@ const PlaylistCard = ({
       requestOptions
     );
     const data = await res.json();
-    console.log(data);
     setChange(e.target[0].value);
     setRename(!rename);
   };
