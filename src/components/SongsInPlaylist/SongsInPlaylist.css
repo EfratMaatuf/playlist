@@ -1,5 +1,5 @@
 #SongsInPlaylist {
-  height: 65vh;
+  /* height: 65vh; */
   /* width: 40%; */
   width: 618px;
   overflow-y: scroll;
@@ -42,20 +42,48 @@
 
 .noSongs {
   font-family: "Kalam", cursive;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  margin: 50px;
-  font-weight: bold;
-}
-.noSongs1 {
-  font-family: "Kalam", cursive;
   font-size: 40px;
   display: flex;
   justify-content: center;
+  margin: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+.noSongs1 {
+  font-family: "Kalam", cursive;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
 }
 .imgHeadphones {
   object-fit: contain;
   height: 120px;
   margin-top: 74px;
+}
+
+@media screen and (max-width: 800px){
+  .noSongs {
+    font-family: "Kalam", cursive;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    margin: 35px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .noSongs1 {
+    font-family: "Kalam", cursive;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  
+  }
+  .imgHeadphones {
+    object-fit: contain;
+    height: 80px;
+    margin-top: 74px;
+  }
 }

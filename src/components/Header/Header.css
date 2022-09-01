@@ -1,7 +1,12 @@
+.header{
+    position: sticky;
+    top: 0%;
+}
 .search{
     display:flex;
     height: 40px;
-    width: 700px;
+    width: 600px;
+    margin-left: 50px;
     
     }
     ._search{
@@ -20,4 +25,21 @@
     .searchImg,
     .logoutImg{
         height: 30px;
+    }
+    .userNameHeader{
+        font-family: "Kalam", cursive;
+        font-size: 15px;
+        margin-right: 30px;
+        margin-left: -30px;
+        color:     rgb(58, 56, 56)
+
+    }
+    @media screen and (max-width: 800px){
+        .search{
+            display:flex;
+            height: 40px;
+            width: 100%;
+            margin-left: 0px;
+
+        }        
     }

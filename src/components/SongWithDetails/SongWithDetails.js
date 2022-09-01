@@ -19,7 +19,7 @@ const SongWithDetails = ({ song, nextSong }) => {
             width={540}
           />
         </div>
-        <h5>{song?.title}</h5>
+        <h5 className="details">{song?.title}</h5>
         {song &&
           <p>
             {(song?.views / 1000).toFixed()}k views • {song?.uploadedAt}

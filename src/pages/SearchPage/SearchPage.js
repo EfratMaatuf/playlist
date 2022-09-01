@@ -39,12 +39,12 @@ const SearchPage = () => {
               <Link to={`/song/${song.id}`}>
                 <li className="song">
                   <div className="des">
-                    <h4>{song.title}</h4>
+                    <h6 className="songtitle">{song.title}</h6>
                     <p>{song.description}</p>
-                    <p>
+                    <p className="songViews">
                       {(song.views / 1000).toFixed()}k views • {song.uploadedAt}
                     </p>
-                    <p>{song.duration_formatted}</p>
+                    <p className="songViews">{song.duration_formatted}</p>
 
                     {/* <button className="btn btn-outline-dark">
                       go to song                    </button> */}

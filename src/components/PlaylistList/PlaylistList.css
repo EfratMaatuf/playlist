@@ -34,3 +34,38 @@
   width: 200px;
   color: white;
 }
+.droplist{
+  display: none;
+}
+
+@media screen and (max-width: 600px){
+  .droplist{
+    display:block;
+    margin-top: 20px;
+    margin-left: 20px;
+     border: solid grey;
+  border-radius: 5px;
+  box-shadow: black 0px 0px 7px 0px;
+width: fit-content;
+background-color:  #08a489;
+color: white;
+font-family: "Kalam", cursive;
+
+
+
+  }
+
+
+#PlaylistList {
+  display: none;
+  /* display: flex;
+  flex-wrap: wrap;
+  /* margin: 2%; */
+  /* margin-top: 3px;
+  align-items: center;
+  font-family: "Kalam", cursive;
+  font-weight: normal;
+  font-size: 20px;
+  justify-content: center;
+  flex-direction: column;  */
+}}

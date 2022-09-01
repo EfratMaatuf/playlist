@@ -13,8 +13,20 @@
   display: flex;
   align-items: center;
   align-items: stretch;
+  width: 95%;
+  margin-right: 30px;
 
 }
 .title{
   color: black;
+}
+@media screen and (max-width: 600px){
+  .song{
+    display: flex;
+    align-items: center;
+    align-items: flex-end;
+    width: 95%;
+    flex-direction: column-reverse;
+    margin-right: 30px;
+  }  
 }

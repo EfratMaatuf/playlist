@@ -5,10 +5,30 @@
 }
 .userName {
   font-family: "Kalam", cursive;
-  font-size: 50px;
+  font-size: 40px;
   display: flex;
   justify-content: center;
   margin: 50px;
   font-weight: bold;
+  text-align: center;
+
+
+}
+@media screen and (max-width: 600px){
+  .PlaylistsCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .userName {
+    font-family: "Kalam", cursive;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    font-weight: bold;
+    text-align: center;
+  
+  }
 
 }

@@ -11,8 +11,8 @@
 
 .songPage {
   float: right;
-  margin: 60px;
-  margin-right: 80px;
+  margin: 30px;
+  /* margin-right: 80px; */
   margin-top: 10px;
   text-align: right;
 }
